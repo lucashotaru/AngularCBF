@@ -1,3 +1,14 @@
+import { CopaNordesteSub20Component } from './pages/menu/tabelas/copadonordeste/copaNordesteSub20/copaNordesteSub20.component';
+import { CopanordesteMasculinoComponent } from './pages/menu/tabelas/copadonordeste/copanordesteMasculino/copanordesteMasculino.component';
+import { CopaNodesteEliminatoriasComponent } from './pages/menu/tabelas/copadonordeste/copaNodesteEliminatorias/copaNodesteEliminatorias.component';
+import { SuperCopaSub20Component } from './pages/menu/tabelas/supercopa/superCopaSub20/superCopaSub20.component';
+import { SuperCopaSub17Component } from './pages/menu/tabelas/supercopa/superCopaSub17/superCopaSub17.component';
+import { SuperCopaMasculinoComponent } from './pages/menu/tabelas/supercopa/superCopaMasculino/superCopaMasculino.component';
+import { SuperCopaFemininaComponent } from './pages/menu/tabelas/supercopa/superCopaFeminina/superCopaFeminina.component';
+import { Copabrasilsub20Component } from './pages/menu/tabelas/copa-do-brasil/copabrasilsub20/copabrasilsub20.component';
+import { Copabrasilsub17Component } from './pages/menu/tabelas/copa-do-brasil/copabrasilsub17/copabrasilsub17.component';
+import { CopabrasilMasculinoComponent } from './pages/menu/tabelas/copa-do-brasil/copabrasilMasculino/copabrasilMasculino.component';
+import { CopabrasilFemininoComponent } from './pages/menu/tabelas/copa-do-brasil/copabrasilFeminino/copabrasilFeminino.component';
 import { EstatisticasJogadoresComponent } from './pages/menu/estatisticas/estatisticasJogadores/estatisticasJogadores.component';
 import { EstatisticasTimeComponent } from './pages/menu/estatisticas/estatisticasTime/estatisticasTime.component';
 import { FemininoSub16Component } from './pages/menu/tabelas/campeonatobrasileiro/feminino-sub16/feminino-sub16.component';
@@ -21,9 +32,10 @@ import { CampeonatobrasileiroComponent } from './pages/menu/tabelas/campeonatobr
 import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CopaNordestePreCopaComponent } from './pages/menu/tabelas/copadonordeste/copaNordestePreCopa/copaNordestePreCopa.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'campeonatobrasileiro' },
+  { path: '', pathMatch: 'full', redirectTo: 'campeonatobrasileiro/serieA' },
   {
     path: '',
     component: HomeComponent,
@@ -38,7 +50,7 @@ const routes: Routes = [
           { path: 'serieD', component: SerieDComponent },
           { path: 'femininocb', component: FemininoComponent },
           { path: 'femininoA1', component: FemininoA1Component },
-          { path: 'femininoA1', component: FemininoA2Component },
+          { path: 'femininoA2', component: FemininoA2Component },
           { path: 'sub-20', component: Sub20Component },
           { path: 'sub-17', component: Sub17Component },
           { path: 'aspirantes', component: AspirantesComponent },
@@ -49,14 +61,32 @@ const routes: Routes = [
       {
         path: 'copa-do-brasil',
         component: CopaDoBrasilComponent,
+        children:[
+          {path: 'copabrasilFeminino', component: CopabrasilFemininoComponent},
+          {path: 'copabrasilMasculino', component: CopabrasilMasculinoComponent},
+          {path: 'copabrasilSub17', component: Copabrasilsub17Component},
+          {path: 'coprabrasilSub20', component: Copabrasilsub20Component},
+        ]
       },
       {
         path: 'supercopa',
         component: SupercopaComponent,
+        children:[
+          {path: 'supercopaFeminina', component: SuperCopaFemininaComponent},
+          {path: 'supercopaMasculino', component: SuperCopaMasculinoComponent},
+          {path: 'supercopaSub17', component: SuperCopaSub17Component},
+          {path: 'supercopaSub20', component: SuperCopaSub20Component},
+        ]
       },
       {
         path: 'copadonordeste',
         component: CopadonordesteComponent,
+        children:[
+          {path: 'copanordesteEliminatorias', component: CopaNodesteEliminatoriasComponent},
+          {path: 'copanordesteMasculino', component: CopanordesteMasculinoComponent},
+          {path: 'copanordestePreCopa', component: CopaNordestePreCopaComponent},
+          {path: 'copanordesteSub20', component: CopaNordesteSub20Component},
+        ]
       },
       {
         path: 'estatisticasTime',
