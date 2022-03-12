@@ -2,6 +2,10 @@
 
 Projeto com intuito de estudar angular
 
+para rodar o projeto primeiramente deve ter o Angular CLI, instalado em sua maquina
+ao clonar o projeto de o comando `ng build`  ou ` npx ng build`, depois de instalar
+as dependencia do projeto para rodar digite `ng s --o`  ou `npx ng s --o` 
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.16.
 
