@@ -1,0 +1,26 @@
+<nz-layout>
+  <nz-sider nzCollapsible nzWidth="200px" nzTheme="dark">
+    <ul nz-menu nzMode="inline" class="sider-menu">
+      <li nz-submenu nzOpen nzIcon="table" nzTitle="Tabelas">
+        <ul>
+          <li nz-menu-item nzSelected routerLink="serieA">Serie A</li>
+          <li nz-menu-item routerLink="serieB">Serie B</li>
+          <li nz-menu-item routerLink="serieC">Serie C</li>
+          <li nz-menu-item routerLink="serieD">Serie D</li>
+          <li nz-menu-item routerLink="femininocb">Feminino</li>
+          <li nz-menu-item routerLink="femininoA1">Feminino A1</li>
+          <li nz-menu-item routerLink="femininoA2">Feminino A2</li>
+          <li nz-menu-item routerLink="sub-20">Sub-20</li>
+          <li nz-menu-item routerLink="sub-17">Sub-17</li>
+          <li nz-menu-item routerLink="aspirantes">Aspirantes</li>
+          <li nz-menu-item routerLink="feminino-sub18">Feminino Sub-18</li>
+          <li nz-menu-item routerLink="feminino-sub16">Feminino Sub-16</li>
+        </ul>
+      </li>
+    </ul>
+    <nz-layout class="inner-layout">
+      <nz-content>
+        <router-outlet></router-outlet>
+      </nz-content>
+    </nz-layout> </nz-sider
+></nz-layout>

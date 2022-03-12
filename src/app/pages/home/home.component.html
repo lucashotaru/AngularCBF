@@ -1,0 +1,37 @@
+<nz-header class="header-menu" >
+  <div class="logo">
+    <img class="img" src="" alt="" />
+  </div>
+    <ul nz-menu nzMode="horizontal" nzTheme="dark" >
+      <li nz-submenu nzIcon="table" nzTitle="Tabelas">
+        <ul nzTheme="light">
+          <li nz-menu-item routerLink="campeonatobrasileiro">
+            Campeonato Brasileiro
+          </li>
+          <li nz-menu-item routerLink="copa-do-brasil">Copa do Brasil</li>
+          <li nz-menu-item routerLink="supercopa">Supercopa</li>
+          <li nz-menu-item routerLink="copadonordeste">Copa do nordeste</li>
+        </ul>
+      </li>
+      <li nz-submenu nzIcon="fund-projection-screen" nzTitle="Estatísticas">
+        <ul>
+          <li nz-menu-item routerLink="estatisticasTime">Times</li>
+          <li nz-menu-item routerLink="estatisticasJogadores">Jogadores</li>
+        </ul>
+      </li>
+      <li
+        nz-submenu
+        nzIcon="read"
+        routerLink="noticias"
+        nzTitle="Notícias"
+      ></li>
+      <li
+        nz-submenu
+        nzIcon="eye"
+        routerLink="transmissoes"
+        nzTitle="Transmissões"
+      ></li>
+      <li class="login" nz-submenu nzIcon="user" nzTitle="Administração"></li>
+    </ul>
+</nz-header>
+<router-outlet></router-outlet>

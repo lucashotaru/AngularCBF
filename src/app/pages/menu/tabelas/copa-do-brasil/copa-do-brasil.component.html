@@ -1,0 +1,19 @@
+<nz-layout>
+  <nz-sider nzWidth="200px" nzTheme="light">
+    <ul nz-menu nzMode="inline" class="sider-menu">
+      <li nz-submenu nzOpen nzIcon="table" nzTitle="Tabelas">
+        <ul>
+          <li nz-menu-item nzSelected routerLink="serieA">Masculino</li>
+          <li nz-menu-item routerLink="serie">Feminino</li>
+          <li nz-menu-item routerLink="">Sub-20</li>
+          <li nz-menu-item routerLink="">Sub-17 D</li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout class="inner-layout">
+    <nz-content>
+      <router-outlet></router-outlet>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
