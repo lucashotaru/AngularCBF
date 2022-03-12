@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'copa-do-brasil',
-  templateUrl: './copa-do-brasil.component.html',
-  styleUrls: ['./copa-do-brasil.component.scss']
+  template: '<router-outlet></router-outlet>'
 })
 export class CopaDoBrasilComponent implements OnInit {
 

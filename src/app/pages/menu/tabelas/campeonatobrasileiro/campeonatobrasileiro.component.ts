@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'campeonatobrasileiro',
-  templateUrl: './campeonatobrasileiro.component.html',
-  styleUrls: ['./campeonatobrasileiro.component.scss']
+  template: '<router-outlet></router-outlet>'
 })
 export class CampeonatobrasileiroComponent implements OnInit {
 
