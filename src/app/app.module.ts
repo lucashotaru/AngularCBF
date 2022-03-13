@@ -1,3 +1,4 @@
+import { AdministracaoComponent } from './pages/menu/administracao/administracao.component';
 import { IconsProviderModule } from './icons-provider.module';
 import { SupercopaComponent } from './pages/menu/tabelas/supercopa/supercopa.component';
 import { CopadonordesteComponent } from './pages/menu/tabelas/copadonordeste/copadonordeste.component';
@@ -20,6 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 
 registerLocaleData(pt);
@@ -32,7 +36,9 @@ registerLocaleData(pt);
     TabelasComponent,
     CopaDoBrasilComponent,
     CopadonordesteComponent,
-    SupercopaComponent
+    SupercopaComponent,
+    AdministracaoComponent
+
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,11 @@ registerLocaleData(pt);
     NzLayoutModule,
     NzMenuModule,
     NzDropDownModule,
-    IconsProviderModule
+    IconsProviderModule,
+    NzUploadModule,
+    NzMessageModule,
+    NzUploadModule,
+    NzButtonModule
   ],
   providers: [{ provide: NZ_I18N, useValue: pt_PT }],
   bootstrap: [AppComponent],

@@ -1,0 +1,19 @@
+<main>
+  <div class="tabelas">
+    <nz-upload
+      nzType="drag"
+      [nzMultiple]="true"
+      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      (nzChange)="handleChange($event)"
+    >
+      <p class="ant-upload-drag-icon">
+        <i nz-icon nzType="inbox"></i>
+      </p>
+      <p class="ant-upload-text">Importação novas tabelas</p>
+      <p class="ant-upload-hint">Aceita apenas arquivos xlxs</p>
+    </nz-upload>
+  </div>
+  <div class="download">
+    <button nz-button nzType="primary">Download tabelas</button>
+  </div>
+</main>

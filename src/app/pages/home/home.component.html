@@ -19,14 +19,14 @@
       </a>
       <nz-dropdown-menu #estatisticas="nzDropdownMenu">
         <ul nz-menu nzSelectable>
-          <li nz-menu-item routerLink="estatisticasTime">Times</li>
-          <li nz-menu-item routerLink="estatisticasJogadores">Jogadores</li>
+          <li nz-menu-item routerLink="estatisticas/Time">Times</li>
+          <li nz-menu-item routerLink="estatisticas/Jogadores">Jogadores</li>
         </ul>
       </nz-dropdown-menu>
     </li>
     <li nz-submenu nzIcon="read" routerLink="noticias" nzTitle="Notícias"></li>
     <li nz-submenu nzIcon="eye" routerLink="transmissoes" nzTitle="Transmissões"></li>
-    <li class="login" nz-submenu nzIcon="user" nzTitle="Administração"></li>
+    <li class="login" nz-submenu nzIcon="user" routerLink="administracao" nzTitle="Administração"></li>
   </ul>
 </nz-header>
 <nz-layout class="inner-layout">
