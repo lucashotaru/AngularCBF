@@ -1,3 +1,4 @@
+import { AdministracaoComponent } from './pages/menu/administracao/administracao.component';
 import { EstatisticasJogadoresComponent } from './pages/menu/estatisticas/estatisticasJogadores/estatisticasJogadores.component';
 import { EstatisticasTimeComponent } from './pages/menu/estatisticas/estatisticasTime/estatisticasTime.component';
 import { TransmissoesComponent } from './pages/menu/transmissoes/transmissoes.component';
@@ -16,11 +17,11 @@ const routes: Routes = [
         path: 'tabelas', loadChildren: () => import('./pages/menu/tabelas/tabelas.module').then(m => m.TabelasModule)
       },
       {
-        path: 'estatisticasTime',
+        path: 'estatisticas/Time',
         component: EstatisticasTimeComponent,
       },
       {
-        path: 'estatisticasJogadores',
+        path: 'estatisticas/Jogadores',
         component: EstatisticasJogadoresComponent,
       },
       {
@@ -31,6 +32,10 @@ const routes: Routes = [
         path: 'transmissoes',
         component: TransmissoesComponent,
       },
+      {
+        path: 'administracao',
+        component: AdministracaoComponent
+      }
     ],
   },
 ];
