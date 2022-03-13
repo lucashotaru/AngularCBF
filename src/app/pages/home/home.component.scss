@@ -1,13 +1,28 @@
-.logo {
+
+.logo{
   width: 120px;
   height: 31px;
-  margin: 16px 30px 16px 0;
+  margin: 10px 31px 14px 0;
   float: left;
-  &img{
-    background: black;
+}
+
+nz-header{
+  background: rgb(76, 167, 61);
+  .cor_header{
+    background: rgb(76, 167, 61);
   }
 }
 
+.menu{
+  color: rgb(255, 255, 255);
+  font-size: medium;
+}
+
+i{
+  margin-right: 5px;
+}
 .login{
   float: right;
 }
+
+
