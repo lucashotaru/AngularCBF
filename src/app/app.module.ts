@@ -1,3 +1,4 @@
+import { IconsProviderModule } from './icons-provider.module';
 import { SupercopaComponent } from './pages/menu/tabelas/supercopa/supercopa.component';
 import { CopadonordesteComponent } from './pages/menu/tabelas/copadonordeste/copadonordeste.component';
 import { CopaDoBrasilComponent } from './pages/menu/tabelas/copa-do-brasil/copa-do-brasil.component';
@@ -18,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+
 
 registerLocaleData(pt);
 
@@ -39,6 +42,8 @@ registerLocaleData(pt);
     BrowserAnimationsModule,
     NzLayoutModule,
     NzMenuModule,
+    NzDropDownModule,
+    IconsProviderModule
   ],
   providers: [{ provide: NZ_I18N, useValue: pt_PT }],
   bootstrap: [AppComponent],

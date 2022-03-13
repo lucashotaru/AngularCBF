@@ -1,3 +1,4 @@
+import { TabelasComponent } from './tabelas.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -6,7 +7,7 @@ import { SerieCComponent } from './campeonatobrasileiro/serie-c/serie-c.componen
 
 @NgModule({
   declarations: [
-    SerieCComponent
+    SerieCComponent,
   ],
   imports: [CommonModule, TabelasRoutingModule],
 })
