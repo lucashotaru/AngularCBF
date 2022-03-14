@@ -1,4 +1,7 @@
 import { AdministracaoComponent } from './pages/menu/administracao/administracao.component';
+import { MessageService } from './Services/messages.service';
+import { MessagesComponent } from './messages/messages.component';
+import { AdministracaoService } from './Services/administracao.service';
 import { IconsProviderModule } from './icons-provider.module';
 import { SupercopaComponent } from './pages/menu/tabelas/supercopa/supercopa.component';
 import { CopadonordesteComponent } from './pages/menu/tabelas/copadonordeste/copadonordeste.component';
@@ -37,9 +40,10 @@ registerLocaleData(pt);
     CopaDoBrasilComponent,
     CopadonordesteComponent,
     SupercopaComponent,
-    AdministracaoComponent
+    AdministracaoComponent,
+    MessagesComponent,
 
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -53,9 +57,9 @@ registerLocaleData(pt);
     NzUploadModule,
     NzMessageModule,
     NzUploadModule,
-    NzButtonModule
+    NzButtonModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: pt_PT }],
+  providers: [MessageService, AdministracaoService,{ provide: NZ_I18N, useValue: pt_PT }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

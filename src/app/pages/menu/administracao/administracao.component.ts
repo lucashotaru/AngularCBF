@@ -1,7 +1,6 @@
-import { NzUploadChangeParam } from 'ng-zorro-antd/upload';
-import { NzMessageService } from 'ng-zorro-antd/message';
+import { AdministracaoService } from './../../../Services/administracao.service';
 import { Component } from '@angular/core';
-import { NzButtonSize } from 'ng-zorro-antd/button';
+
 
 
 @Component({
@@ -10,19 +9,28 @@ import { NzButtonSize } from 'ng-zorro-antd/button';
   styleUrls: ['./administracao.component.scss']
 })
 
-export class AdministracaoComponent {
-  constructor(private msg: NzMessageService) {}
+export class AdministracaoComponent{
+  file: any = null;
 
-  handleChange(info: NzUploadChangeParam): void {
-    if (info.file.status !== 'uploading') {
-      console.log(info.file, info.fileList);
-    }
-    if (info.file.status === 'done') {
-      this.msg.success(`Arquivo upado com sucesso`);
-    } else if (info.file.status === 'error') {
-      this.msg.error(`Falha ao upar o arquivo.`);
-    }
-  }
+ constructor(
+   private uploadService: AdministracaoService
+ ){
 
-  size: NzButtonSize = 'large';
+ }
+
+ onFilechange(event: any) {
+   console.log(event.target.files[0])
+   this.file = event.target.files[0]
+ }
+
+ upload() {
+   if (this.file) {
+     this.uploadService.uploadfile(this.file).subscribe(resp => {
+       alert("Uploaded")
+     })
+   } else {
+     alert("Please select a file first")
+   }
+ }
 }
+
