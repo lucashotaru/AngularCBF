@@ -33,8 +33,7 @@ const routes: Routes = [
         component: TransmissoesComponent,
       },
       {
-        path: 'administracao',
-        component: AdministracaoComponent
+        path: 'admin', component:AdministracaoComponent , loadChildren: () => import('./pages/menu/administracao/administracao.module').then(m => m.AdministracaoModule)
       }
     ],
   },
