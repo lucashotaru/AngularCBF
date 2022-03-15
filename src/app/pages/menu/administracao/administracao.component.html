@@ -1,11 +1,14 @@
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-md-4">
-      <div class="mb-3">
-        <label for="formFile" class="form-label">Upload file example</label>
-        <input (change)="this.onFilechange($event)" class="form-control" type="file" id="formFile">
-        <button (click)="this.upload()" type="button" class="btn btn-primary mt-3">Upload</button>
-      </div>
-    </div>
-  </div>
- </div>
+<nz-layout>
+  <nz-sider nzWidth="200px" nzTheme="light">
+    <ul nz-menu nzMode="inline" style="width: 240px">
+      <a nz-menu-item
+      nzIcon="table"
+      routerLink="uploadTabelas"><i nz-icon nzType="table" nzTheme="outline"></i>Importar Tabelas</a>
+    </ul>
+  </nz-sider>
+  <nz-layout class="inner-layout">
+    <nz-content>
+      <router-outlet></router-outlet>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

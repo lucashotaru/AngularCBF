@@ -1,7 +1,9 @@
+import { ImportarCBFApi } from './apis/importarCBF.api';
+import { DataService } from './Services/data.service';
+import { UploadTabelasComponent } from './pages/menu/administracao/uploadTabelas/uploadTabelas.component';
 import { AdministracaoComponent } from './pages/menu/administracao/administracao.component';
 import { MessageService } from './Services/messages.service';
 import { MessagesComponent } from './messages/messages.component';
-import { AdministracaoService } from './Services/administracao.service';
 import { IconsProviderModule } from './icons-provider.module';
 import { SupercopaComponent } from './pages/menu/tabelas/supercopa/supercopa.component';
 import { CopadonordesteComponent } from './pages/menu/tabelas/copadonordeste/copadonordeste.component';
@@ -29,6 +31,8 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 
 
+
+
 registerLocaleData(pt);
 
 @NgModule({
@@ -42,7 +46,7 @@ registerLocaleData(pt);
     SupercopaComponent,
     AdministracaoComponent,
     MessagesComponent,
-
+    UploadTabelasComponent,
     ],
   imports: [
     BrowserModule,
@@ -59,7 +63,7 @@ registerLocaleData(pt);
     NzUploadModule,
     NzButtonModule,
   ],
-  providers: [MessageService, AdministracaoService,{ provide: NZ_I18N, useValue: pt_PT }],
+  providers: [MessageService, DataService, ImportarCBFApi,{ provide: NZ_I18N, useValue: pt_PT }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,46 +1,49 @@
-<nz-header>
-  <div class="logo">
-    <img class="logo_img" />
-  </div>
-  <ul nz-menu nzMode="horizontal" nzTheme="dark">
-    <li nz-menu-item>
-      <a class="menu" nz-dropdown [nzDropdownMenu]="tabelas">
-        <i nz-icon nzType="table"></i>
-        Tabelas
-      </a>
-      <nz-dropdown-menu #tabelas="nzDropdownMenu">
-        <app-tabelas></app-tabelas>
-      </nz-dropdown-menu>
-    </li>
-    <li nz-menu-item>
-      <a class="menu" nz-dropdown [nzDropdownMenu]="estatisticas">
-        <i nz-icon nzType="fund-projection-screen"></i>Estatísticas
-      </a>
-      <nz-dropdown-menu #estatisticas="nzDropdownMenu">
-        <ul nz-menu nzSelectable>
-          <li nz-menu-item routerLink="estatisticas/Time">Times</li>
-          <li nz-menu-item routerLink="estatisticas/Jogadores">Jogadores</li>
-        </ul>
-      </nz-dropdown-menu>
-    </li>
-    <li nz-submenu nzIcon="read" routerLink="noticias" nzTitle="Notícias"></li>
-    <li
-      nz-submenu
-      nzIcon="eye"
-      routerLink="transmissoes"
-      nzTitle="Transmissões"
-    ></li>
-    <li
-      class="admin"
-      nz-submenu
-      nzIcon="user"
-      routerLink="administracao"
-      nzTitle="Administração"
-    ></li>
-  </ul>
-</nz-header>
-<nz-layout class="inner-layout">
-  <nz-content>
-    <router-outlet></router-outlet>
-  </nz-content>
+<nz-layout>
+  <nz-header>
+    <div class="logo">
+      <img class="logo_img" />
+    </div>
+    <ul nz-menu nzMode="horizontal" nzTheme="dark">
+      <li nz-menu-item>
+        <a class="menu" nz-dropdown [nzDropdownMenu]="tabelas">
+          <i nz-icon nzType="table"></i>
+          Tabelas
+        </a>
+        <nz-dropdown-menu #tabelas="nzDropdownMenu">
+          <app-tabelas></app-tabelas>
+        </nz-dropdown-menu>
+      </li>
+      <li nz-menu-item>
+        <a class="menu" nz-dropdown [nzDropdownMenu]="estatisticas">
+          <i nz-icon nzType="fund-projection-screen"></i>Estatísticas
+        </a>
+        <nz-dropdown-menu #estatisticas="nzDropdownMenu">
+          <ul nz-menu nzSelectable>
+            <li nz-menu-item routerLink="estatisticas/Time">Times</li>
+            <li nz-menu-item routerLink="estatisticas/Jogadores">Jogadores</li>
+          </ul>
+        </nz-dropdown-menu>
+      </li>
+      <li
+        nz-submenu
+        nzIcon="read"
+        routerLink="noticias"
+        nzTitle="Notícias"
+      ></li>
+      <li
+        nz-submenu
+        nzIcon="eye"
+        routerLink="transmissoes"
+        nzTitle="Transmissões"
+      ></li>
+      <li
+        class="admin"
+        nz-submenu
+        nzIcon="user"
+        routerLink="admin/uploadTabelas"
+        nzTitle="Administração"
+      ></li>
+    </ul>
+  </nz-header>
+  <router-outlet></router-outlet>
 </nz-layout>
