@@ -1,3 +1,4 @@
+import { DownloadTabelasComponent } from './downloadTabelas/downloadTabelas.component';
 import { UploadTabelasComponent } from './uploadTabelas/uploadTabelas.component';
 import { AppComponent } from './../../../app.component';
 import { NgModule } from '@angular/core';
@@ -13,6 +14,10 @@ const routes: Routes = [
         path: 'uploadTabelas',
         component: UploadTabelasComponent,
       },
+      {
+        path: 'downloadTabelas',
+        component: DownloadTabelasComponent
+      }
     ],
   },
 ];

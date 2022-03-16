@@ -1,5 +1,5 @@
 import { AdministracaoComponent } from './pages/menu/administracao/administracao.component';
-import { EstatisticasJogadoresComponent } from './pages/menu/estatisticas/estatisticasJogadores/estatisticasJogadores.component';
+import { EstatisticasJogadoresComponent } from './pages/menu/estatisticas/estatisticas-jogadores/estatisticas-jogadores.component';
 import { EstatisticasTimeComponent } from './pages/menu/estatisticas/estatisticasTime/estatisticasTime.component';
 import { TransmissoesComponent } from './pages/menu/transmissoes/transmissoes.component';
 import { NoticiasComponent } from './pages/menu/noticias/noticias.component';
@@ -9,6 +9,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'tabelas/campeonatobrasileiro/serieA' },
+  { path: 'admin', pathMatch: 'full' , redirectTo: 'admin/uploadTabelas'},
   {
     path: '',
     component: HomeComponent,
