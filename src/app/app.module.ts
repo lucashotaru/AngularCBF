@@ -1,3 +1,6 @@
+import { EstatisticasTimeComponent } from './pages/menu/estatisticas/estatisticasTime/estatisticasTime.component';
+import { NzCarouselModule } from 'ng-zorro-antd/carousel';
+import { DownloadTabelaCBFApi } from './apis/downloadTabelaCBF.api';
 import { ImportarCBFApi } from './apis/importarCBF.api';
 import { DataService } from './Services/data.service';
 import { UploadTabelasComponent } from './pages/menu/administracao/uploadTabelas/uploadTabelas.component';
@@ -29,7 +32,8 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-
+import { NzMentionModule } from 'ng-zorro-antd/mention';
+import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
 
 
 
@@ -47,6 +51,7 @@ registerLocaleData(pt);
     AdministracaoComponent,
     MessagesComponent,
     UploadTabelasComponent,
+    EstatisticasTimeComponent,
     ],
   imports: [
     BrowserModule,
@@ -62,8 +67,12 @@ registerLocaleData(pt);
     NzMessageModule,
     NzUploadModule,
     NzButtonModule,
+    NzCarouselModule,
+    NzMentionModule,
+    NzAutocompleteModule
   ],
-  providers: [MessageService, DataService, ImportarCBFApi,{ provide: NZ_I18N, useValue: pt_PT }],
+  providers: [MessageService, DataService, ImportarCBFApi, DownloadTabelaCBFApi,{ provide: NZ_I18N, useValue: pt_PT },],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

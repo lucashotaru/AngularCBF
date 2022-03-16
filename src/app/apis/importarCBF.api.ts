@@ -9,16 +9,6 @@ export class ImportarCBFApi {
     public importarCBF(tabelas: any) {
       let formParams = new FormData();
     formParams.append('file', tabelas)
-    return this.data.post('http://localhost:5000/LeitorCSV/importar-jogos-cbf', formParams)
+    return this.data.download('http://localhost:5000/LeitorCSV/importar-jogos-cbf', formParams)
     }
-
-    public importargCBF(tabelas: File): Promise<any> {
-      let formParams = new FormData();
-    formParams.append('file', tabelas)
-      return this.data.post<any>(`http://localhost:5000/LeitorCSV/importar-jogos-cbf`, formParams, undefined, {
-          headers: {
-              'Content-Disposition' : 'multipart/form-data',
-          },
-      });
-  }
 }

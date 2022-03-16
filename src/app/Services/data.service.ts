@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 
 @Injectable()
@@ -41,7 +42,6 @@ export class DataService {
             response = (options) ? this.httpClient.post<T>(api, params, options).toPromise<T>()
                 : this.httpClient.post<T>(api, params).toPromise<T>();
         }
-        console.log('chegou aki')
         return response;
     }
 
