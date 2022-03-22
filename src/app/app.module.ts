@@ -40,6 +40,10 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzStatisticModule } from 'ng-zorro-antd/statistic';
+import { NzCardModule } from 'ng-zorro-antd/card';
+
+
 
 
 registerLocaleData(pt);
@@ -56,8 +60,8 @@ registerLocaleData(pt);
     AdministracaoComponent,
     MessagesComponent,
     UploadTabelasComponent,
-    EstatisticasTimeComponent,
-    SerieAComponent
+    SerieAComponent,
+    EstatisticasTimeComponent
     ],
   imports: [
     BrowserModule,
@@ -80,7 +84,9 @@ registerLocaleData(pt);
     NzDividerModule,
     NzPageHeaderModule,
     NzGridModule,
-    NzSelectModule
+    NzSelectModule,
+    NzStatisticModule,
+    NzCardModule
   ],
   providers: [MessageService, DataService, ImportarCBFApi, DownloadTabelaCBFApi,{ provide: NZ_I18N, useValue: pt_PT },],
 
