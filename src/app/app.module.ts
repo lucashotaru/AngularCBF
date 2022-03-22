@@ -34,7 +34,12 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzMentionModule } from 'ng-zorro-antd/mention';
 import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
-
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { SerieAComponent } from './pages/menu/tabelas/campeonatobrasileiro/serie-a/serie-a.component';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 
 registerLocaleData(pt);
@@ -52,6 +57,7 @@ registerLocaleData(pt);
     MessagesComponent,
     UploadTabelasComponent,
     EstatisticasTimeComponent,
+    SerieAComponent
     ],
   imports: [
     BrowserModule,
@@ -69,7 +75,12 @@ registerLocaleData(pt);
     NzButtonModule,
     NzCarouselModule,
     NzMentionModule,
-    NzAutocompleteModule
+    NzAutocompleteModule,
+    NzTableModule,
+    NzDividerModule,
+    NzPageHeaderModule,
+    NzGridModule,
+    NzSelectModule
   ],
   providers: [MessageService, DataService, ImportarCBFApi, DownloadTabelaCBFApi,{ provide: NZ_I18N, useValue: pt_PT },],
 
