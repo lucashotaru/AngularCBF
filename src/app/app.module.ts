@@ -42,6 +42,7 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzStatisticModule } from 'ng-zorro-antd/statistic';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { SeriaAService } from './pages/menu/tabelas/campeonatobrasileiro/serie-a/seriaA.service';
 
 
 
@@ -61,7 +62,7 @@ registerLocaleData(pt);
     MessagesComponent,
     UploadTabelasComponent,
     SerieAComponent,
-    EstatisticasTimeComponent
+    EstatisticasTimeComponent,
     ],
   imports: [
     BrowserModule,
@@ -88,7 +89,7 @@ registerLocaleData(pt);
     NzStatisticModule,
     NzCardModule
   ],
-  providers: [MessageService, DataService, ImportarCBFApi, DownloadTabelaCBFApi,{ provide: NZ_I18N, useValue: pt_PT },],
+  providers: [MessageService, DataService, ImportarCBFApi, DownloadTabelaCBFApi, SeriaAService,{ provide: NZ_I18N, useValue: pt_PT },],
 
   bootstrap: [AppComponent],
 })
