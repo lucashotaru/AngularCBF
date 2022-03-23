@@ -14,7 +14,7 @@
       </nz-page-header-extra>
     </nz-page-header>
 
-    <nz-table #columnTable [nzData]="listOfData">
+    <nz-table #tabela [nzData]="listaTabelas">
       <thead>
         <tr>
           <th>Posição</th>
@@ -27,13 +27,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of columnTable.data">
+        <tr *ngFor="let data of tabela.data">
           <td>{{ data.posicao }}</td>
           <td>{{ data.nome }}</td>
-          <td>{{ data.Pontos }}</td>
-          <td>{{ data.Vitorias }}</td>
-          <td>{{ data.Derrotas }}</td>
-          <td>{{ data.Empates }}</td>
+          <td>{{ data.pontos }}</td>
+          <td>{{ data.vitorias }}</td>
+          <td>{{ data.derrotas }}</td>
+          <td>{{ data.empates }}</td>
           <td>
             <button nz-button nzType="primary" disabled nzDanger>
               <i nz-icon nzType="right"></i>
