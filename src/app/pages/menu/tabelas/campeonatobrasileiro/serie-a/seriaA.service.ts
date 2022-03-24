@@ -8,11 +8,11 @@ import { Tabelas } from 'src/app/models/Tabelas.model';
 })
 export class SeriaAService {
 
+  api = 'https://localhost:7056/api/cards';
 
   constructor(private httpClient: HttpClient){}
 
-  getConfig() {
-    // now returns an Observable of Config
-    return this.httpClient.get<Tabelas[]>('https://localhost:7056/api/Cards');
+  BuscarTabelas(): Observable<Tabelas[]> {
+    return this.httpClient.get<Tabelas[]>(this.api);
   }
 }
