@@ -43,6 +43,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzStatisticModule } from 'ng-zorro-antd/statistic';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { SeriaAService } from './pages/menu/tabelas/campeonatobrasileiro/serie-a/seriaA.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -87,10 +88,11 @@ registerLocaleData(pt);
     NzGridModule,
     NzSelectModule,
     NzStatisticModule,
-    NzCardModule
+    NzCardModule,
+    NgbModule
   ],
   providers: [MessageService, DataService, ImportarCBFApi, DownloadTabelaCBFApi, SeriaAService,{ provide: NZ_I18N, useValue: pt_PT },],
 
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent, EstatisticasTimeComponent],
 })
 export class AppModule {}

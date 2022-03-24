@@ -1,15 +1,53 @@
+dl {
+  display: grid;
+  grid-template-columns: max-content auto;
+}
 
-      [nz-carousel-content] {
-        text-align: center;
-        height: 160px;
-        line-height: 160px;
-        background: #364d79;
-        color: #fff;
-        overflow: hidden;
-      }
+dt {
+  grid-column-start: 1;
+}
 
-      h3 {
-        color: #fff;
-        margin-bottom: 0;
-        user-select: none;
-      }
+dd {
+  float: right;
+  grid-column-start: 2;
+  padding-left: 1rem;
+}
+
+dt:after{
+  content: ":";
+}
+
+.divBtn{
+  margin: 2em;
+}
+
+.fundo{
+  background: white;
+}
+
+.selecionador{
+  border: 1px solid #5E5E5E;
+  padding: 1.2em;
+}
+
+.logo-time:hover{
+  border: 0.5px solid #5E5E5E;
+}
+
+.carousel-control-prev{
+  width: unset;
+}
+
+.carousel-control-next{
+  width: unset;
+}
+
+span.carousel-control-prev-icon{
+  background-image: url(../../assets/img/left-arrow.png);
+  margin-right: 4em;
+}
+
+span.carousel-control-next-icon{
+  background-image: url(../../assets/img/right-arrow.png);
+  margin-left: 4em;
+}
