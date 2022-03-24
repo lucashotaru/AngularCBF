@@ -27,8 +27,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of tabela.data">
-          <td>{{ data.posicao }}</td>
+        <tr *ngFor="let data of tabela.data; let i = index">
+          <td>{{ i + 1 }}</td>
           <td>{{ data.nome }}</td>
           <td>{{ data.pontos }}</td>
           <td>{{ data.vitorias }}</td>
