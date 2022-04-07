@@ -14,6 +14,8 @@ import pt from '@angular/common/locales/pt';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { EstatisticaComponent } from './estatistica/estatistica.component';
 
 
 
@@ -24,6 +26,7 @@ registerLocaleData(pt);
   declarations: [
     AppComponent,
     HomeComponent,
+    EstatisticaComponent,
     ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ registerLocaleData(pt);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    TooltipModule.forRoot()
   ],
   providers: [MessageService, DataService, ImportarCBFApi, DownloadTabelaCBFApi,{ provide: NZ_I18N, useValue: pt_PT },],
 
