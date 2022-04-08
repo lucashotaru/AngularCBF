@@ -2,7 +2,6 @@ import { DownloadTabelaCBFApi } from './apis/downloadTabelaCBF.api';
 import { ImportarCBFApi } from './apis/importarCBF.api';
 import { DataService } from './Services/data.service';
 import { MessageService } from './Services/messages.service';
-import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +15,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { EstatisticaComponent } from './estatistica/estatistica.component';
+import { LoginComponent } from './pages/Shared/Login/Login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './pages/Shared/home/home.component';
+import { HeaderComponent } from './pages/Shared/Header/Header.component';
+import { RegistroComponent } from './pages/Shared/Registro/Registro.component';
+import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 
 
 
@@ -25,8 +30,11 @@ registerLocaleData(pt);
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     HomeComponent,
     EstatisticaComponent,
+    LoginComponent,
+    RegistroComponent
     ],
   imports: [
     BrowserModule,
@@ -34,7 +42,9 @@ registerLocaleData(pt);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    NgbModule,
+    NgxNavbarModule
   ],
   providers: [MessageService, DataService, ImportarCBFApi, DownloadTabelaCBFApi,{ provide: NZ_I18N, useValue: pt_PT },],
 
