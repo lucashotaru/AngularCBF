@@ -1,24 +1,35 @@
-<header class="shadow p-3 mb-5 bg-dark rounded">
+<header class="p-3 mb-3 bg-dark shadow">
   <div class="container">
-    <div class="d-flex">
-      <a>
-        <img src="../../../../assets/img/logo.png" alt="" class="bi me-1" width="60" height="40">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-light text-decoration-none">
+        <img class="bi me-1" src="../../../../assets/img/logo.png" alt="" width="72" height="57">
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary"><i class="bi bi-table"></i> Tabelas</a></li>
-        <li><a href="#" class="nav-link px-2 link-secondary"><i class="bi bi-pie-chart"></i> Estatística</a></li>
-        <li><a href="#" class="nav-link px-2 link-secondary"><i class="bi bi-newspaper"></i> Noticias</a></li>
-        <li><a href="#" class="nav-link px-2 link-secondary"><i class="bi bi-display"></i> Transmissões</a></li>
+        <li><a class="nav-link px-2 text-light">Tabelas</a></li>
+        <li><a class="nav-link px-2 text-light">Estatística</a></li>
+        <li><a class="nav-link px-2 text-light">Notícias</a></li>
+        <li><a class="nav-link px-2 text-light">Transmissões</a></li>
       </ul>
 
-      <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-2">
-        <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
       </form>
 
-      <div>
-        <app-Login></app-Login>
+      <div class="row">
+        <div class="col">
+          <div ngbDropdown class="d-inline-block">
+            <a class="nav-link px-2 link-light" tabindex="0" ngbDropdownToggle id="usuario" role="button">
+              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            </a>
+            <div ngbDropdownMenu aria-labelledby="usuario">
+              <app-Login class="w-auto p-3"></app-Login>
+            </div>
+          </div>
+        </div>
       </div>
+
+
     </div>
   </div>
 </header>

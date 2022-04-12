@@ -21,6 +21,8 @@ import { HomeComponent } from './pages/Shared/home/home.component';
 import { HeaderComponent } from './pages/Shared/Header/Header.component';
 import { RegistroComponent } from './pages/Shared/Registro/Registro.component';
 import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+
 
 
 
@@ -44,7 +46,8 @@ registerLocaleData(pt);
     BrowserAnimationsModule,
     TooltipModule.forRoot(),
     NgbModule,
-    NgxNavbarModule
+    NgxNavbarModule,
+    TabsModule
   ],
   providers: [MessageService, DataService, ImportarCBFApi, DownloadTabelaCBFApi,{ provide: NZ_I18N, useValue: pt_PT },],
 
