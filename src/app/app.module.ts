@@ -1,6 +1,4 @@
 import { DownloadTabelaCBFApi } from './apis/downloadTabelaCBF.api';
-import { ImportarCBFApi } from './apis/importarCBF.api';
-import { DataService } from './Services/data.service';
 import { MessageService } from './Services/messages.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,17 +8,20 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { pt_PT } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import pt from '@angular/common/locales/pt';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { EstatisticaComponent } from './estatistica/estatistica.component';
-import { LoginComponent } from './pages/Shared/Login/Login.component';
+import { LoginComponent } from './auth/Login/Login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './pages/Shared/home/home.component';
 import { HeaderComponent } from './pages/Shared/Header/Header.component';
 import { RegistroComponent } from './pages/Shared/Registro/Registro.component';
 import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
+import { DataService } from './Services/data.service';
+import { AuthAPI } from './apis/auth.api';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -34,8 +35,8 @@ registerLocaleData(pt);
     HomeComponent,
     EstatisticaComponent,
     LoginComponent,
-    RegistroComponent
-    ],
+    RegistroComponent,
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -44,9 +45,10 @@ registerLocaleData(pt);
     BrowserAnimationsModule,
     TooltipModule.forRoot(),
     NgbModule,
-    NgxNavbarModule
+    NgxNavbarModule,
+    ReactiveFormsModule
   ],
-  providers: [MessageService, DataService, ImportarCBFApi, DownloadTabelaCBFApi,{ provide: NZ_I18N, useValue: pt_PT },],
+  providers: [MessageService, DataService, DownloadTabelaCBFApi, AuthAPI,{ provide: NZ_I18N, useValue: pt_PT }, authInterceptorProviders],
 
   bootstrap: [AppComponent],
 })
