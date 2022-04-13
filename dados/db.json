@@ -1,0 +1,188 @@
+{
+  "times": [
+    {
+      "nome": "América",
+      "brasao": "../../assets/img/times/America.png",
+      "temporadas": [
+        "2021"
+      ]
+    },
+    {
+      "nome": "Atlético - PR",
+      "brasao": "../../assets/img/times/Athletico.png",
+      "temporadas": [
+        "2020",
+        "2021"
+      ]
+    },
+    {
+      "nome": "Atlético - GO",
+      "brasao": "../../assets/img/times/Atletico.png",
+      "temporadas": [
+        "2020",
+        "2021"
+      ]
+    },
+    {
+      "nome": "Atlético - MG",
+      "brasao": "../../assets/img/times/AtleticoMineiro.png",
+      "temporadas": [
+        "2020",
+        "2021"
+      ]
+    },
+    {
+      "nome": "Bahia",
+      "brasao": "../../assets/img/times/Bahia.png",
+      "temporadas": [
+        "2020",
+        "2021"
+      ]
+    },
+    {
+      "nome": "Ceará",
+      "brasao": "../../assets/img/times/Ceara.png",
+      "temporadas":[
+        "2020",
+        "2021"
+      ]
+    },
+    {
+      "nome": "Chapecoense",
+      "brasao": "../../assets/img/times/Chapecoense.png",
+      "temporadas":[
+        "2021"
+      ]
+    },
+    {
+      "nome": "Corinthians",
+      "brasao": "../../assets/img/times/Corinthians.png",
+      "temporadas":[
+        "2020",
+        "2021"
+      ]
+    },
+    {
+      "nome": "Cuiaba",
+      "brasao": "../../assets/img/times/Cuiaba.png",
+      "temporadas":[
+        "2021"
+      ]
+    },
+    {
+      "nome": "Flamengo",
+      "brasao": "../../assets/img/times/Flamengo.png",
+      "temporadas":[
+        "2020",
+        "2021"
+      ]
+    },
+    {
+      "nome": "Fluminense",
+      "brasao": "../../assets/img/times/Fluminense.png",
+      "temporadas":[
+        "2020",
+        "2021"
+      ]
+    },
+    {
+      "nome": "Fortaleza",
+      "brasao": "../../assets/img/times/Fortaleza.png",
+      "temporadas":[
+        "2020",
+        "2021"
+      ]
+    },
+    {
+      "nome": "Grêmio",
+      "brasao": "../../assets/img/times/Gremio.png",
+      "temporadas":[
+        "2020",
+        "2021"
+      ]
+    },
+    {
+      "nome": "Internacional",
+      "brasao": "../../assets/img/times/Internacional.png",
+      "temporadas":[
+        "2020",
+        "2021"
+      ]
+    },
+    {
+      "nome": "Juventude",
+      "brasao": "../../assets/img/times/Juventude.png",
+      "temporadas":[
+        "2021"
+      ]
+    },
+    {
+      "nome": "Palmeiras",
+      "brasao": "../../assets/img/times/Palmeiras.png",
+      "temporadas":[
+        "2020",
+        "2021"
+      ]
+    },
+    {
+      "nome": "RedBull Bragantino",
+      "brasao": "../../assets/img/times/RedBullBragantino.png",
+      "temporadas":[
+        "2020",
+        "2021"
+      ]
+    },
+    {
+      "nome": "Santos",
+      "brasao": "../../assets/img/times/Santos.png",
+      "temporadas":[
+        "2020",
+        "2021"
+      ]
+    },
+    {
+      "nome": "São Paulo",
+      "brasao": "../../assets/img/times/SaoPaulo.png",
+      "temporadas":[
+        "2020",
+        "2021"
+      ]
+    },
+    {
+      "nome": "Sport",
+      "brasao": "../../assets/img/times/Sport.png",
+      "temporadas":[
+        "2020",
+        "2021"
+      ]
+    },
+    {
+      "nome": "Vasco da Gama",
+      "brasao": "../../assets/img/times/Vasco.png",
+      "temporadas":[
+        "2020"
+      ]
+    },
+    {
+      "nome": "Goiás",
+      "brasao": "../../assets/img/times/Goias.png",
+      "temporadas":[
+        "2020"
+      ]
+    },
+    {
+      "nome": "Coritiba",
+      "brasao": "../../assets/img/times/Coritiba.png",
+      "temporadas":[
+        "2020"
+      ]
+    },
+    {
+      "nome": "Botafogo",
+      "brasao": "../../assets/img/times/Botafogo.png",
+      "temporadas":[
+        "2020"
+      ]
+    }
+  ]
+}
