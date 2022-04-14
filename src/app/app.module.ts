@@ -8,23 +8,19 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { pt_PT } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import pt from '@angular/common/locales/pt';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { EstatisticaComponent } from './estatistica/estatistica.component';
+import { EstatisticaComponent } from './pages/estatistica/estatistica.component';
 import { LoginComponent } from './auth/Login/Login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './pages/Shared/home/home.component';
 import { HeaderComponent } from './pages/Shared/Header/Header.component';
-import { RegistroComponent } from './pages/Shared/Registro/Registro.component';
 import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 import { DataService } from './Services/data.service';
 import { AuthAPI } from './apis/auth.api';
-import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
-
+import { AuthInterceptor, authInterceptorProviders } from './auth/auth.interceptor';
 
 registerLocaleData(pt);
 
@@ -35,8 +31,7 @@ registerLocaleData(pt);
     HomeComponent,
     EstatisticaComponent,
     LoginComponent,
-    RegistroComponent,
-   ],
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -46,9 +41,16 @@ registerLocaleData(pt);
     TooltipModule.forRoot(),
     NgbModule,
     NgxNavbarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [MessageService, DataService, DownloadTabelaCBFApi, AuthAPI,{ provide: NZ_I18N, useValue: pt_PT }, authInterceptorProviders],
+  providers: [
+    MessageService,
+    DataService,
+    DownloadTabelaCBFApi,
+    AuthAPI,
+    { provide: NZ_I18N, useValue: pt_PT },
+    authInterceptorProviders
+  ],
 
   bootstrap: [AppComponent],
 })
