@@ -1,6 +1,4 @@
-import { Observable } from 'rxjs';
 import { Times } from './../models/times.model';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import packageTimes from '../../../dados/db.json';
 import $ from 'jquery';
@@ -17,11 +15,16 @@ export class EstatisticaComponent implements OnInit {
 
   private listaTimes: Times[] = packageTimes.times;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor() {}
 
   getTimes(temporada: string) {
 
     $('#temp-label').text('Temporada ' + temporada);
+
+    $('#img-time1').attr('src', '../../assets/img/prohibition-symbol.png');
+    $('#img-time1').attr('alt', '');
+    $('#img-time2').attr('src', '../../assets/img/prohibition-symbol.png');
+    $('#img-time2').attr('alt', '');
 
     var timesTemporada: Times[] = [];
 
@@ -50,20 +53,6 @@ export class EstatisticaComponent implements OnInit {
 
     this.bindTimesTemporada(timesTemporada);
 
-    // for(var i = 0; i < this.listaTimes.length; i++){
-
-    //   var time = this.listaTimes[i];
-    //   $('#btn-time' + (i+1)).find('img').remove();
-
-    //   for(var j = 0; j < time.temporadas.length; j++){
-
-    //     if (time.temporadas[j] == temporada)
-    //       $('#btn-time' + (i+1)).append(`<img src="` + time.brasao + `" alt="` + time.nome + `"/ style="max-width: 54px;">`);
-    //     else
-    //       $('#btn-time' + (i+1)).append(`<img src="../../assets/img/prohibition-symbol.png" style="max-width: 54px;">`)
-
-    //   }
-    // }
   }
 
   bindTimesTemporada (timesTemporada: Times[]) {
@@ -89,7 +78,7 @@ export class EstatisticaComponent implements OnInit {
   }
 
   limpar () {
-    debugger;
+
     $('#div-img-time1').find('img').attr('src', '../../assets/img/prohibition-symbol.png');
     $('#div-img-time1').find('img').attr('alt', '');
 
@@ -113,7 +102,7 @@ export class EstatisticaComponent implements OnInit {
         if(imgTime1.attr('alt') == undefined || imgTime1.attr('alt') == null || imgTime1.attr('alt') == '') {
 
           imgTime1.remove();
-          $('#div-img-time1').append('<img>');
+          $('#div-img-time1').append('<img id="img-time1">');
           imgTime1 = $('#div-img-time1').find('img');
           imgTime1.attr('src', String(timeSelecionado.attr('src')));
           imgTime1.attr('alt', String(timeSelecionado.attr('alt')));
@@ -121,12 +110,40 @@ export class EstatisticaComponent implements OnInit {
 
         } else if (imgTime2.attr('alt') == undefined || imgTime2.attr('alt') == null || imgTime2.attr('alt') == '') {
 
-          imgTime2.remove();
-          $('#div-img-time2').append('<img>');
-          imgTime2 = $('#div-img-time2').find('img');
-          imgTime2.attr('src', String(timeSelecionado.attr('src')));
-          imgTime2.attr('alt', String(timeSelecionado.attr('alt')));
-          imgTime2.css('max-width', '180px');
+          if (timeSelecionado.attr('alt') != imgTime1.attr('alt')) {
+
+            imgTime2.remove();
+            $('#div-img-time2').append('<img id="img-time2">');
+            imgTime2 = $('#div-img-time2').find('img');
+            imgTime2.attr('src', String(timeSelecionado.attr('src')));
+            imgTime2.attr('alt', String(timeSelecionado.attr('alt')));
+            imgTime2.css('max-width', '180px');
+
+          } else {
+
+            var errorTemplate = `<div id="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                  Os times selecionados devem ser diferentes
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>`;
+
+            $('#mensagemErro').find('div').remove();
+            $('#mensagemErro').append(errorTemplate);
+
+          }
+
+        } else if (imgTime1.attr('alt') != 'undefined' || imgTime2.attr('alt') != 'undefined') {
+
+          var errorTemplate = `<div id="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                Selecione apenas 2 times por vez
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>`;
+
+          $('#mensagemErro').find('div').remove();
+          $('#mensagemErro').append(errorTemplate);
 
         }
 
