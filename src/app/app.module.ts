@@ -20,7 +20,8 @@ import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 import { DataService } from './Services/data.service';
 import { AuthAPI } from './apis/auth.api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthInterceptor, authInterceptorProviders } from './auth/auth.interceptor';
+import { authInterceptorProviders } from './auth/auth.interceptor';
+import { TabelasComponent } from './pages/tabelas/tabelas.component';
 
 registerLocaleData(pt);
 
@@ -31,6 +32,7 @@ registerLocaleData(pt);
     HomeComponent,
     EstatisticaComponent,
     LoginComponent,
+    TabelasComponent
   ],
   imports: [
     BrowserModule,
