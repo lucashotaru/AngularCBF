@@ -1,11 +1,11 @@
-<header class="p-3 mb-3 shadow bg-dark">
+<header class="p-2 mb-3 shadow bg-dark">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
       </a>
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a class="nav-link px-2 link-light"><i class="bi bi-table"></i>  Tabelas</a></li>
+        <li routerLink="tabelas"><a class="nav-link px-2 link-light"><i class="bi bi-table"></i>  Tabelas</a></li>
         <li><a class="nav-link px-2 link-light"><i class="bi bi-pie-chart"></i>  Estatística</a></li>
         <li><a class="nav-link px-2 link-light"><i class="bi bi-newspaper"></i>  Noticias</a></li>
         <li><a class="nav-link px-2 link-light"><i class="bi bi-display"></i>  Transmissões</a></li>
@@ -15,7 +15,7 @@
       </form>
       <div ngbDropdown class="d-inline-block">
         <a class="nav-link px-2 link-light" tabindex="0" ngbDropdownToggle id="usuario" role="button">
-          <img class="avatar" *ngIf="isLoggedIn" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png">
+          <img class="avatar" *ngIf="isLoggedIn" src="https://img2.gratispng.com/20180402/bje/kisspng-computer-icons-avatar-login-user-avatar-5ac207e69ecd41.2588125315226654466505.jpg">
           <img class="avatar" *ngIf="!isLoggedIn" src="../../../../assets/img/avatar.svg">
         </a>
         <div ngbDropdownMenu aria-labelledby="dropdownForm1">
