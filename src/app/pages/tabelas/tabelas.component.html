@@ -1,73 +1,66 @@
 <div class="container-fluid">
   <div class="row mt-md-5">
-    <div class="col-md-1 d-none d-md-block ">
-      <button type="button" class="btn btn-dark btn-lg shadow mt-2 active">2021</button>
-      <button type="button" class="btn btn-dark btn-lg shadow mt-2">2020</button>
-      <button type="button" class="btn btn-dark btn-lg shadow mt-2">2019</button>
-      <button type="button" class="btn btn-dark btn-lg shadow mt-2">2018</button>
-      <button type="button" class="btn btn-dark btn-lg shadow mt-2">2017</button>
-      <button type="button" class="btn btn-dark btn-lg shadow mt-2">2016</button>
-      <button type="button" class="btn btn-dark btn-lg shadow mt-2">2015</button>
-      <button type="button" class="btn btn-dark btn-lg shadow mt-2">2014</button>
-      <button type="button" class="btn btn-dark btn-lg shadow mt-2">2013</button>
-      <button type="button" class="btn btn-dark btn-lg shadow mt-2">2012</button>
+    <div class="col-md-1 d-none d-lg-block ">
+      <div class="col-2" role="group" ngbRadioGroup name="radioBasic" [(ngModel)]="ano" (ngModelChange)="buscarTabela()">
+        <label ngbButtonLabel class="btn btn-dark btn-lg shadow mt-5"><input ngbButton type="radio" class="btn-check" [value]="2021">2021</label>
+        <label ngbButtonLabel class="btn btn-dark btn-lg shadow mt-2"><input ngbButton type="radio" class="btn-check" [value]="2020">2020</label>
+        <label ngbButtonLabel class="btn btn-dark btn-lg shadow mt-2"><input ngbButton type="radio" class="btn-check" [value]="2019">2019</label>
+        <label ngbButtonLabel class="btn btn-dark btn-lg shadow mt-2"><input ngbButton type="radio" class="btn-check" [value]="2018">2018</label>
+        <label ngbButtonLabel class="btn btn-dark btn-lg shadow mt-2"><input ngbButton type="radio" class="btn-check" [value]="2017">2017</label>
+        <label ngbButtonLabel class="btn btn-dark btn-lg shadow mt-2"><input ngbButton type="radio" class="btn-check" [value]="2016">2016</label>
+        <label ngbButtonLabel class="btn btn-dark btn-lg shadow mt-2"><input ngbButton type="radio" class="btn-check" [value]="2015">2015</label>
+        <label ngbButtonLabel class="btn btn-dark btn-lg shadow mt-2"><input ngbButton type="radio" class="btn-check" [value]="2014">2014</label>
+        <label ngbButtonLabel class="btn btn-dark btn-lg shadow mt-2"><input ngbButton type="radio" class="btn-check" [value]="2013">2013</label>
+        <label ngbButtonLabel class="btn btn-dark btn-lg shadow mt-2"><input ngbButton type="radio" class="btn-check" [value]="2012">2012</label>
+      </div>
     </div>
-    <div class="col-md-7">
-      <div class="col-md-6">
+    <div class="col-md-6">
+      <div class="col-md-5">
         <div class="input-group">
-          <select class="form-select">
-            <option selected>Campeonato Brasileiro</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+          <select class="form-select" style="width: auto" [(ngModel)]="tipo" (ngModelChange)="filtroTipo()">
+            <option [ngValue]="'campeonato-brasileiro'">Campeonato Brasileiro</option>
+            <option [ngValue]="'copa-brasil'">Copa do Brasil</option>
+            <option [ngValue]="'supercopa'">Supercopa</option>
           </select>
         </div>
       </div>
       <div class="col-md-4 mt-1">
         <div class="input-group">
-          <select class="form-select">
-            <option selected>Série A</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+          <select class="form-select" style="width: auto" [(ngModel)]="serieSelecionada" (ngModelChange)="buscarTabela()">
+            <option *ngFor="let item of seriesLista" [value]="item.valor">{{ item.nome }}</option>
           </select>
         </div>
       </div>
       <div class="col-md-12 mt-5">
-
         <table class="table table-borderless">
           <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Country</th>
-            <th scope="col">Area</th>
-            <th scope="col">Population</th>
+            <th class="col-1 text-white">Posição</th>
+            <th class="col-3 text-white">Time</th>
+            <th class="col-1 text-white text-center">Pontos</th>
+            <th class="col-1 text-white text-center">Vitórias</th>
+            <th class="col-1 text-white text-center">Derrotas</th>
+            <th class="col-1 text-white text-center">Empates</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let country of countries">
-            <th scope="row">{{ country.id }}</th>
-            <td>
-              <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="me-2" style="width: 20px">
-              {{ country.name }}
+          <tr *ngFor="let item of TabelaPrincipal" class="">
+            <th class="text-white" scope="row"></th>
+            <td class="text-white">
+              <img [src]="'https://upload.wikimedia.org/wikipedia/commons/2/2e/Flamengo_braz_logo.svg'" class="me-2" style="width: 20px">
+              {{ item.nome }}
             </td>
-            <td>{{ country.area | number}}</td>
-            <td>{{ country.population | number }}</td>
+            <td class="text-white text-center">{{ item.pontos| number}}</td>
+            <td class="text-white text-center">{{ item.vitorias| number }}</td>
+            <td class="text-white text-center">{{ item.derrotas| number }}</td>
+            <td class="text-white text-center">{{ item.empates| number }}</td>
           </tr>
           </tbody>
         </table>
-
-        <div class="d-flex justify-content-between p-2">
-          <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshCountries()">
+        <div class="d-flex justify-content-end">
+          <ngb-pagination [collectionSize]="colecao" [(page)]="page" [pageSize]="pageSize" (pageChange)="mudaPagina()">
           </ngb-pagination>
-
-          <select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
-            <option [ngValue]="2">2 items per page</option>
-            <option [ngValue]="4">4 items per page</option>
-            <option [ngValue]="6">6 items per page</option>
-          </select>
         </div>
-
       </div>
     </div>
   </div>
