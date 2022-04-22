@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { authInterceptorProviders } from './auth/auth.interceptor';
 import { TabelasComponent } from './pages/tabelas/tabelas.component';
 import { TabelasAPI } from './apis/tabelas.api';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 registerLocaleData(pt);
 
@@ -45,6 +46,7 @@ registerLocaleData(pt);
     NgbModule,
     NgxNavbarModule,
     ReactiveFormsModule,
+    CarouselModule
   ],
   providers: [
     MessageService,
