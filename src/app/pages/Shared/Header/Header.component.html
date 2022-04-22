@@ -1,4 +1,4 @@
-<header class="p-2 mb-3 shadow bg-dark">
+<header class="p-2 mb-3 shadow header">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
@@ -15,7 +15,7 @@
       </form>
       <div ngbDropdown class="d-inline-block">
         <a class="nav-link px-2 link-light" tabindex="0" ngbDropdownToggle id="usuario" role="button">
-          <img class="avatar" *ngIf="isLoggedIn" src="https://img2.gratispng.com/20180402/bje/kisspng-computer-icons-avatar-login-user-avatar-5ac207e69ecd41.2588125315226654466505.jpg">
+          <img class="avatar logado" *ngIf="isLoggedIn" src="https://img2.gratispng.com/20180402/bje/kisspng-computer-icons-avatar-login-user-avatar-5ac207e69ecd41.2588125315226654466505.jpg">
           <img class="avatar" *ngIf="!isLoggedIn" src="../../../../assets/img/avatar.svg">
         </a>
         <div ngbDropdownMenu aria-labelledby="dropdownForm1">
