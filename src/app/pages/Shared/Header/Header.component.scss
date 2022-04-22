@@ -1,3 +1,13 @@
+.header{
+  background: #000000;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(25, 55, 103, 0.95));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(25, 55, 103, 0.95))
+}
+
 .nav{
   font-size: larger;
 }
@@ -5,5 +15,7 @@
 .avatar{
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  .logado{
+    border-radius: 50%;
+  }
 }

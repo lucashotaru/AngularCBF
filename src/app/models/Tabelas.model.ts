@@ -1,4 +1,4 @@
-export interface Tabelas {
+export interface TabelasModel {
   posicao: number;
   nome: string;
   vitorias: number;

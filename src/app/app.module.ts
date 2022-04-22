@@ -22,6 +22,7 @@ import { AuthAPI } from './apis/auth.api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { authInterceptorProviders } from './auth/auth.interceptor';
 import { TabelasComponent } from './pages/tabelas/tabelas.component';
+import { TabelasAPI } from './apis/tabelas.api';
 
 registerLocaleData(pt);
 
@@ -50,6 +51,7 @@ registerLocaleData(pt);
     DataService,
     DownloadTabelaCBFApi,
     AuthAPI,
+    TabelasAPI,
     { provide: NZ_I18N, useValue: pt_PT },
     authInterceptorProviders
   ],
