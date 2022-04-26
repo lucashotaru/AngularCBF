@@ -14,7 +14,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class TabelasComponent implements OnInit {
   ano = 2021;
-
+  posicao = 0;
   page = 1;
   pageSize = 10;
   TabelaPrincipalData!: TabelasModel [];
@@ -55,6 +55,7 @@ export class TabelasComponent implements OnInit {
   }
 
   mudaPagina() {
+    this.posicao = 10;
     this.TabelaPrincipal = this.TabelaPrincipalData
       .map((time, i) => ({id: i + 1, ...time}))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
