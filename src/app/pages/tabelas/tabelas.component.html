@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <div class="row mt-md-5">
     <div class="col-md-1 d-none d-lg-block">
-      <div class="col-12 offset-1" role="group" ngbRadioGroup name="radioBasic" [(ngModel)]="ano" (ngModelChange)="buscarTabela()">
-        <label ngbButtonLabel class="btn btn-dark btn-lg shadow mt-5"><input ngbButton type="radio" class="btn-check" [value]="2021">2021</label>
+      <div class="col-12 offset-1 botao_data " role="group" ngbRadioGroup name="radioBasic" [(ngModel)]="ano" (ngModelChange)="buscarTabela()">
+        <label ngbButtonLabel class="btn btn-dark btn-lg shadow mt-5 "><input ngbButton type="radio" class="btn-check" [value]="2021">2021</label>
         <label ngbButtonLabel class="btn btn-dark btn-lg shadow mt-2"><input ngbButton type="radio" class="btn-check" [value]="2020">2020</label>
         <label ngbButtonLabel class="btn btn-dark btn-lg shadow mt-2"><input ngbButton type="radio" class="btn-check" [value]="2019">2019</label>
         <label ngbButtonLabel class="btn btn-dark btn-lg shadow mt-2"><input ngbButton type="radio" class="btn-check" [value]="2018">2018</label>
@@ -16,17 +16,17 @@
     </div>
     <div class="col-sm-12 col-md-7">
       <div class="col-md-6">
-        <div class="input-group bg-black">
-          <select class="form-select" style="width: auto" [(ngModel)]="tipo" (ngModelChange)="filtroTipo()">
+        <div class="input-group">
+          <select class="form-select form-select-md mb-3 bg-secondary text-white" [(ngModel)]="tipo" (ngModelChange)="filtroTipo()">
             <option [ngValue]="'campeonato-brasileiro'">Campeonato Brasileiro</option>
             <option [ngValue]="'copa-brasil'">Copa do Brasil</option>
             <option [ngValue]="'supercopa'">Supercopa</option>
           </select>
         </div>
       </div>
-      <div class="col-md-4 mt-1">
+      <div class="col-md-4 mt-2">
         <div class="input-group">
-          <select class="form-select" style="width: auto" [(ngModel)]="serieSelecionada" (ngModelChange)="buscarTabela()">
+          <select class="form-select form-select-sm bg-secondary text-white" [(ngModel)]="serieSelecionada" (ngModelChange)="buscarTabela()">
             <option *ngFor="let item of seriesLista" [value]="item.valor">{{ item.nome }}</option>
           </select>
         </div>
@@ -57,14 +57,20 @@
             </tr>
           </tbody>
         </table>
-        <div class="d-flex justify-content-end">
-          <ngb-pagination [collectionSize]="colecao" [(page)]="page" [pageSize]="pageSize" (pageChange)="mudaPagina()">
-          </ngb-pagination>
+        <div class="d-flex justify-content-end bg-dark">
+          <div class="pagination modal-3" role="group" ngbRadioGroup name="radioBasic" [(ngModel)]="page" (ngModelChange)="mudaPagina()">
+            <div class="row">
+              <label ngbButtonLabel><input ngbButton type="radio" class="btn-check" [value]="page">&laquo;</label>
+              <label ngbButtonLabel><input ngbButton type="radio" class="btn-check" [value]="1">1</label>
+              <label ngbButtonLabel><input ngbButton type="radio" class="btn-check" [value]="2">2</label>
+              <label ngbButtonLabel><input ngbButton type="radio" class="btn-check" [value]="page">&raquo;</label>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div class="col-md-4 card-jogador">
-      <div class="container1 col-md-2 offset-2">
+      <div class="card_jogador_container col-md-2 offset-2">
         <div class="card">
           <div class="imgBx">
             <img src="../../../assets/img/cards-follow/Neymar.png">
