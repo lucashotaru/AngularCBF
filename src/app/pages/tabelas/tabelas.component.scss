@@ -3,7 +3,18 @@ table {
   border-spacing: 0 8px;
 }
 
-/* <select> styles */
+svg.escudo {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  cursor: pointer;
+}
+
+svg.escudo:hover{
+	opacity: 0.5;
+	filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
 select {
   appearance: none;
   border: 0;
@@ -22,6 +33,11 @@ select {
   &:focus {
     outline: none;
   }
+}
+
+.form-select-sm{
+  width: 10em;
+  height: 2em;
 }
 
 
