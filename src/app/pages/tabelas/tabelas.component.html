@@ -47,7 +47,9 @@
             <tr *ngFor="let item of TabelaPrincipal" class="shadow tablecontent">
               <th class="text-white text-center" scope="row">{{item.posicao}}</th>
               <td class="text-white" scope="row">
-                <img [src]="'https://upload.wikimedia.org/wikipedia/commons/2/2e/Flamengo_braz_logo.svg'" class="me-2" style="width: 20px">
+                <a *ngFor="let item2 of brasaoTime">
+                  <img *ngIf="item.nome == item2.nome" [src]="item2.link" class="me-2" style="width: 20px">
+                </a>
                 {{ item.nome }}
               </td>
               <td class="text-white text-center" scope="row">{{ item.pontos| number}}</td>
@@ -60,10 +62,10 @@
         <div class="d-flex justify-content-end bg-dark">
           <div class="pagination modal-3" role="group" ngbRadioGroup name="radioBasic" [(ngModel)]="page" (ngModelChange)="mudaPagina()">
             <div class="row">
-              <label ngbButtonLabel><input ngbButton type="radio" class="btn-check" [value]="page">&laquo;</label>
+              <label ngbButtonLabel><input ngbButton type="radio" class="btn-check">&laquo;</label>
               <label ngbButtonLabel><input ngbButton type="radio" class="btn-check" [value]="1">1</label>
               <label ngbButtonLabel><input ngbButton type="radio" class="btn-check" [value]="2">2</label>
-              <label ngbButtonLabel><input ngbButton type="radio" class="btn-check" [value]="page">&raquo;</label>
+              <label ngbButtonLabel><input ngbButton type="radio" class="btn-check">&raquo;</label>
             </div>
           </div>
         </div>
