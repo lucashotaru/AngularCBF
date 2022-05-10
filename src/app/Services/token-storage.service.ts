@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-
-
+import jwt_decode from "jwt-decode";
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
@@ -11,7 +10,7 @@ export class TokenStorageService {
   public token: any;
 
   constructor() {
-    const token = localStorage.getItem(TOKEN_KEY);
+    const token = localStorage.getItem(USER_KEY);
     this.token = token;
    }
   signOut(): void {
@@ -27,15 +26,11 @@ export class TokenStorageService {
   public saveUser(user: any): void {
     localStorage.removeItem(USER_KEY);
     localStorage.setItem(USER_KEY, JSON.stringify(user));
+    var decoded = jwt_decode(this.token);
+    console.log(decoded);
   }
-  public getUser(): any {
 
-    const roleKey = 'http://schemas.microsoft.com/ws/2008/06/identity/claims/role';
-    const nameKey = 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name';
-    const user = localStorage.getItem(USER_KEY);
-    if (user) {
-      return JSON.parse(user);
-    }
-    return {};
+  public getRole(): any {
+
   }
 }

@@ -5,4 +5,5 @@ export interface TabelasModel {
   derrotas: number;
   empates: number;
   pontos: number;
+  siglaTime: string;
 }
