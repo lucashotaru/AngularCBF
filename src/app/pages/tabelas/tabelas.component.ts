@@ -1,12 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { TabelasAPI } from 'src/app/apis/tabelas.api';
 import { TabelasModel } from 'src/app/models/Tabelas.model';
 import { SeriesModel } from '../../models/SeriesModel';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { SerieALista } from 'src/app/enum/SerieALista';
-import { BrasaoTime } from 'src/app/models/brasaoTime';
+import { CampeonatoBrasileiro } from 'src/app/enum/CampeonatoBrasileiro';
+import { BrasaoTimeModel } from 'src/app/models/brasaoTime';
 import { BrasaoTimeLista } from 'src/app/enum/BrasaoTimeLista';
+import { DataModel } from 'src/app/models/DataModel';
+import { DataLista } from 'src/app/enum/DataLista';
+import { CopadoBrasil } from 'src/app/enum/CopadoBrasil';
+import { Supercopa } from 'src/app/enum/Supercopa';
+import { TabelaJogosRecentesModel } from 'src/app/models/tabelaJogosRecentes';
 
 
 @Component({
@@ -19,42 +24,60 @@ export class TabelasComponent implements OnInit {
   posicao = 0;
   page = 1;
   pageSize = 10;
+  colecao = 20;
   TabelaPrincipalData!: TabelasModel [];
   TabelaPrincipal!: TabelasModel[];
-  colecao = 20;
-  brasaoTime: BrasaoTime[] = BrasaoTimeLista;
-
-
-  tipo!: string;
+  tabelaJogosRecentes!: TabelaJogosRecentesModel[];
+  brasaoTime: BrasaoTimeModel[] = BrasaoTimeLista;
+  botaoDataLista: DataModel[] = DataLista;
   seriesLista!: SeriesModel [];
+  tipo!: string;
   serieSelecionada!: string;
-  constructor(private api: TabelasAPI, private http: HttpClient, private formBuilder: FormBuilder) {}
+  nomeJogadorCard = "neymar";
+
+  @ViewChild('card_jogador_container', { static: false }) divHello!: ElementRef;
+
+
+  constructor(private api: TabelasAPI, private http: HttpClient, private formBuilder: FormBuilder, private css: Renderer2) {}
 
   ngOnInit(): void {
     this.tipo = "campeonato-brasileiro"
     this.serieSelecionada = "serie-a"
     this.filtroTipo();
-    this.buscarTabela()
-    console.log(this.brasaoTime)
+    this.buscarTabela();
+    this.tabelaRecentes();
   }
 
   filtroTipo()
   {
     if(this.tipo == "campeonato-brasileiro")
     {
-      this.seriesLista = SerieALista;
+      this.seriesLista = CampeonatoBrasileiro;
     }
     if(this.tipo == "copa-brasil")
     {
-      this.seriesLista = [];
+      this.seriesLista = CopadoBrasil;
+    }
+    if(this.tipo == "supercopa")
+    {
+      this.seriesLista = Supercopa;
     }
   }
 
   async buscarTabela()
   {
+    this.page = 1;
     this.TabelaPrincipalData  = await this.http.get<TabelasModel[]>(`https://localhost:7126/api/Tabelas/tabela-principal/${this.ano}/${this.serieSelecionada}`).toPromise<TabelasModel[]>()
     this.mudaPagina()
     this.colecao = this.TabelaPrincipalData.length
+  }
+
+  async tabelaRecentes(){
+    this.tabelaJogosRecentes = await this.http.get<TabelaJogosRecentesModel[]>(`https://localhost:7126/api/Tabelas/tabela-jogos-recentes`).toPromise<TabelaJogosRecentesModel[]>();
+  }
+
+  setStyle() {
+    this.css.setStyle(this.divHello.nativeElement, 'background', 'blue');
   }
 
   mudaPagina() {
@@ -62,5 +85,7 @@ export class TabelasComponent implements OnInit {
     this.TabelaPrincipal = this.TabelaPrincipalData
       .map((time, i) => ({id: i + 1, ...time}))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
+  this.setStyle();
   }
 }
+
