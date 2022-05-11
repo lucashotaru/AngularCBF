@@ -1,6 +1,11 @@
+
 table {
   border-collapse: separate;
   border-spacing: 0 8px;
+}
+
+td{
+  background: var(--dark-light);
 }
 
 .escudos{
@@ -57,13 +62,12 @@ option {
   position: relative;
   width: 320px;
   height: 450px;
-  background: var(--bs-gray-dark);
+  background: var(--dark-light);
   border-radius: 20px;
   overflow: hidden;
 }
 
 .card_jogador_container .card:before {
-  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -78,7 +82,7 @@ option {
 }
 
 .card_jogador_container .card:after {
-  content: "Neymar";
+  content: var(--jogador);
   position: absolute;
   top: 30%;
   font-size: 5em;
@@ -239,8 +243,8 @@ option {
 }
 
 #outrasposicoes{
-  background-color: var(--bs-gray-dark);
-  border: 1px solid var(--bs-gray-dark);
+  background-color: var(--dark-light);
+  border: 1px solid var(--dark-light);
 }
 
 .posicao_tabela {
@@ -283,4 +287,9 @@ span:after {
 
 .tabelaJogosRecentes{
   border-radius: 15px;
+  background: var(--dark-light);
+}
+
+.btn{
+  background: var(--dark-light);
 }

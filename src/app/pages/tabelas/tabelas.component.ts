@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostBinding, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { TabelasAPI } from 'src/app/apis/tabelas.api';
 import { TabelasModel } from 'src/app/models/Tabelas.model';
 import { SeriesModel } from '../../models/SeriesModel';
@@ -33,12 +33,11 @@ export class TabelasComponent implements OnInit {
   seriesLista!: SeriesModel [];
   tipo!: string;
   serieSelecionada!: string;
-  nomeJogadorCard = "neymar";
+  @HostBinding("style.--nomeJogador") nomeJogador = 'red';
+  corTexto = "text-white";
 
-  @ViewChild('card_jogador_container', { static: false }) divHello!: ElementRef;
 
-
-  constructor(private api: TabelasAPI, private http: HttpClient, private formBuilder: FormBuilder, private css: Renderer2) {}
+  constructor(private api: TabelasAPI, private http: HttpClient, private formBuilder: FormBuilder, private renderer: Renderer2, private el: ElementRef) {}
 
   ngOnInit(): void {
     this.tipo = "campeonato-brasileiro"
@@ -46,6 +45,7 @@ export class TabelasComponent implements OnInit {
     this.filtroTipo();
     this.buscarTabela();
     this.tabelaRecentes();
+    document.documentElement.style.setProperty("--jogador", "'hgdfifg'");
   }
 
   filtroTipo()
@@ -76,16 +76,11 @@ export class TabelasComponent implements OnInit {
     this.tabelaJogosRecentes = await this.http.get<TabelaJogosRecentesModel[]>(`https://localhost:7126/api/Tabelas/tabela-jogos-recentes`).toPromise<TabelaJogosRecentesModel[]>();
   }
 
-  setStyle() {
-    this.css.setStyle(this.divHello.nativeElement, 'background', 'blue');
-  }
-
   mudaPagina() {
     this.posicao = 10;
     this.TabelaPrincipal = this.TabelaPrincipalData
       .map((time, i) => ({id: i + 1, ...time}))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
-  this.setStyle();
   }
 }
 
