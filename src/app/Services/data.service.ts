@@ -31,7 +31,7 @@ export class DataService {
         .get<T>(api, { params: params, responseType: 'blob' as 'json' })
         .toPromise<T>();
     } else {
-      response = this.httpClient.get<T>(AuthAPI+api, { params: params }).toPromise<T>();
+      response = this.httpClient.get<T>(AUTH_API+api, { params: params }).toPromise<T>();
     }
     console.log(response)
     return response;
