@@ -1,5 +1,19 @@
 <div class="container-fluid">
 
+  <div class="col-2" *ngFor="let temporada of temporadaList$|async">
+    <div class="row py-2 px-5">
+      <button type="button" class="btn btn-customizado" (click)="showTimes(temporada.id)">
+        {{ temporada.ano }}
+      </button>
+    </div>
+  </div>
+
+  <div class="col-10"></div>
+
+</div>
+
+<!-- <div class="container-fluid">
+
   <div id="mensagemErro" class="container-fluid d-flex justify-content-center position-absolute"></div>
 
   <div class="row mt-5">
@@ -216,4 +230,4 @@
     </div>
   </div>
 
-</div>
+</div> -->

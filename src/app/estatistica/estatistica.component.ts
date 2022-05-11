@@ -1,6 +1,8 @@
+import { Temporada } from './../models/temporada.models';
+import { EstatisticaService } from './../Services/estatistica.service';
+import { Observable } from 'rxjs';
 import { Times } from './../models/times.model';
 import { Component, OnInit } from '@angular/core';
-import packageTimes from '../../../dados/db.json';
 import $ from 'jquery';
 
 @Component({
@@ -13,143 +15,178 @@ import $ from 'jquery';
 
 export class EstatisticaComponent implements OnInit {
 
-  private listaTimes: Times[] = packageTimes.times;
+  temporadaList$!:Observable<any[]>;
+  timeList$!:Observable<any[]>;
+  temporadaList:Temporada[]=[];
+  timeList:Times[]=[];
 
-  constructor() {}
+  //Map
+  temporadaMap:Map<number, string> = new Map();
 
-  getTimes(temporada: string) {
-
-    $('#temp-label').text('Temporada ' + temporada);
-
-    $('#img-time1').attr('src', '../../assets/img/prohibition-symbol.png');
-    $('#img-time1').attr('alt', '');
-    $('#img-time2').attr('src', '../../assets/img/prohibition-symbol.png');
-    $('#img-time2').attr('alt', '');
-
-    var timesTemporada: Times[] = [];
-
-    for(var i = 0; i < this.listaTimes.length; i++) {
-
-      for(var j = 0; j < this.listaTimes[i].temporadas.length; j++) {
-
-        if (this.listaTimes[i].temporadas[j] == temporada)
-          timesTemporada.push(this.listaTimes[i]);
-
-      }
-
-    }
-
-    timesTemporada.sort(function (a, b): number {
-
-      if (a.nome < b.nome)
-        return -1
-
-      if (a.nome > b.nome)
-        return 1
-
-      return 0;
-
-    });
-
-    this.bindTimesTemporada(timesTemporada);
-
-  }
-
-  bindTimesTemporada (timesTemporada: Times[]) {
-
-    if(timesTemporada.length < 20) {
-
-      for (var i = 0; i < 20; i++){
-        $('#btn-time' + (i+1)).find('img').remove()
-        $('#btn-time' + (i+1)).append(`<img src="../../assets/img/prohibition-symbol.png" alt="" style="max-width: 54px;">`)
-      }
-
-    } else {
-
-      for (var i = 0; i < timesTemporada.length; i++) {
-
-        $('#btn-time' + (i+1)).find('img').remove()
-        $('#btn-time' + (i+1)).append(`<img src="` + timesTemporada[i].brasao + `" alt="` + timesTemporada[i].nome +`" style="max-width: 54px;">`)
-
-      }
-
-    }
-
-  }
-
-  limpar () {
-
-    $('#div-img-time1').find('img').attr('src', '../../assets/img/prohibition-symbol.png');
-    $('#div-img-time1').find('img').attr('alt', '');
-
-    $('#div-img-time2').find('img').attr('src', '../../assets/img/prohibition-symbol.png');
-    $('#div-img-time2').find('img').attr('alt', '');
-
-  }
+  constructor(private estatisticaService:EstatisticaService) {}
 
   ngOnInit(): void {
 
-    var that = this;
-
-    $('.btn-time').click(function () {
-
-      if ($(this).find('img').attr('alt') != undefined || $(this).find('img').attr('alt') != null || $(this).find('img').attr('alt') != '') {
-
-        var imgTime1 = $('#div-img-time1').find('img');
-        var imgTime2 = $('#div-img-time2').find('img');
-        var timeSelecionado = $(this).find('img');
-
-        if(imgTime1.attr('alt') == undefined || imgTime1.attr('alt') == null || imgTime1.attr('alt') == '') {
-
-          imgTime1.remove();
-          $('#div-img-time1').append('<img id="img-time1">');
-          imgTime1 = $('#div-img-time1').find('img');
-          imgTime1.attr('src', String(timeSelecionado.attr('src')));
-          imgTime1.attr('alt', String(timeSelecionado.attr('alt')));
-          imgTime1.css('max-width', '180px');
-
-        } else if (imgTime2.attr('alt') == undefined || imgTime2.attr('alt') == null || imgTime2.attr('alt') == '') {
-
-          if (timeSelecionado.attr('alt') != imgTime1.attr('alt')) {
-
-            imgTime2.remove();
-            $('#div-img-time2').append('<img id="img-time2">');
-            imgTime2 = $('#div-img-time2').find('img');
-            imgTime2.attr('src', String(timeSelecionado.attr('src')));
-            imgTime2.attr('alt', String(timeSelecionado.attr('alt')));
-            imgTime2.css('max-width', '180px');
-
-          } else {
-
-            var errorTemplate = `<div id="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
-                                  Os times selecionados devem ser diferentes
-                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                </div>`;
-
-            $('#mensagemErro').find('div').remove();
-            $('#mensagemErro').append(errorTemplate);
-
-          }
-
-        } else if (imgTime1.attr('alt') != 'undefined' || imgTime2.attr('alt') != 'undefined') {
-
-          var errorTemplate = `<div id="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
-                                Selecione apenas 2 times por vez
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>`;
-
-          $('#mensagemErro').find('div').remove();
-          $('#mensagemErro').append(errorTemplate);
-
-        }
-
-      }
-
-    })
+    this.temporadaList$ = this.estatisticaService.getTemporadasList();
+    this.timeList$ = this.estatisticaService.getTimesList();
 
   }
+
+  showTimes(ano:number|string){
+    this.getTimes();
+
+    for (var time in this.timeList) {
+      console.log(time);
+    }
+  }
+
+  getTimes(){
+    this.estatisticaService.getTimesList().subscribe(
+      times => this.timeList = times
+    )
+  }
+
 }
+
+// export class EstatisticaComponent implements OnInit {
+
+//   private listaTimes: Times[] = packageTimes.times;
+
+//   constructor(private service:EstatisticaService) {}
+
+//   getTimes(temporada: string) {
+
+//     $('#temp-label').text('Temporada ' + temporada);
+
+//     $('#img-time1').attr('src', '../../assets/img/prohibition-symbol.png');
+//     $('#img-time1').attr('alt', '');
+//     $('#img-time2').attr('src', '../../assets/img/prohibition-symbol.png');
+//     $('#img-time2').attr('alt', '');
+
+//     var timesTemporada: Times[] = [];
+
+//     for(var i = 0; i < this.listaTimes.length; i++) {
+
+//       for(var j = 0; j < this.listaTimes[i].temporadas.length; j++) {
+
+//         if (this.listaTimes[i].temporadas[j] == temporada)
+//           timesTemporada.push(this.listaTimes[i]);
+
+//       }
+
+//     }
+
+//     timesTemporada.sort(function (a, b): number {
+
+//       if (a.nome < b.nome)
+//         return -1
+
+//       if (a.nome > b.nome)
+//         return 1
+
+//       return 0;
+
+//     });
+
+//     this.bindTimesTemporada(timesTemporada);
+
+//   }
+
+//   bindTimesTemporada (timesTemporada: Times[]) {
+
+//     if(timesTemporada.length < 20) {
+
+//       for (var i = 0; i < 20; i++){
+//         $('#btn-time' + (i+1)).find('img').remove()
+//         $('#btn-time' + (i+1)).append(`<img src="../../assets/img/prohibition-symbol.png" alt="" style="max-width: 54px;">`)
+//       }
+
+//     } else {
+
+//       for (var i = 0; i < timesTemporada.length; i++) {
+
+//         $('#btn-time' + (i+1)).find('img').remove()
+//         $('#btn-time' + (i+1)).append(`<img src="` + timesTemporada[i].brasao + `" alt="` + timesTemporada[i].nome +`" style="max-width: 54px;">`)
+
+//       }
+
+//     }
+
+//   }
+
+//   limpar () {
+
+//     $('#div-img-time1').find('img').attr('src', '../../assets/img/prohibition-symbol.png');
+//     $('#div-img-time1').find('img').attr('alt', '');
+
+//     $('#div-img-time2').find('img').attr('src', '../../assets/img/prohibition-symbol.png');
+//     $('#div-img-time2').find('img').attr('alt', '');
+
+//   }
+
+//   ngOnInit(): void {
+
+//     var that = this;
+
+//     $('.btn-time').click(function () {
+
+//       if ($(this).find('img').attr('alt') != undefined || $(this).find('img').attr('alt') != null || $(this).find('img').attr('alt') != '') {
+
+//         var imgTime1 = $('#div-img-time1').find('img');
+//         var imgTime2 = $('#div-img-time2').find('img');
+//         var timeSelecionado = $(this).find('img');
+
+//         if(imgTime1.attr('alt') == undefined || imgTime1.attr('alt') == null || imgTime1.attr('alt') == '') {
+
+//           imgTime1.remove();
+//           $('#div-img-time1').append('<img id="img-time1">');
+//           imgTime1 = $('#div-img-time1').find('img');
+//           imgTime1.attr('src', String(timeSelecionado.attr('src')));
+//           imgTime1.attr('alt', String(timeSelecionado.attr('alt')));
+//           imgTime1.css('max-width', '180px');
+
+//         } else if (imgTime2.attr('alt') == undefined || imgTime2.attr('alt') == null || imgTime2.attr('alt') == '') {
+
+//           if (timeSelecionado.attr('alt') != imgTime1.attr('alt')) {
+
+//             imgTime2.remove();
+//             $('#div-img-time2').append('<img id="img-time2">');
+//             imgTime2 = $('#div-img-time2').find('img');
+//             imgTime2.attr('src', String(timeSelecionado.attr('src')));
+//             imgTime2.attr('alt', String(timeSelecionado.attr('alt')));
+//             imgTime2.css('max-width', '180px');
+
+//           } else {
+
+//             var errorTemplate = `<div id="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+//                                   Os times selecionados devem ser diferentes
+//                                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+//                                     <span aria-hidden="true">&times;</span>
+//                                   </button>
+//                                 </div>`;
+
+//             $('#mensagemErro').find('div').remove();
+//             $('#mensagemErro').append(errorTemplate);
+
+//           }
+
+//         } else if (imgTime1.attr('alt') != 'undefined' || imgTime2.attr('alt') != 'undefined') {
+
+//           var errorTemplate = `<div id="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+//                                 Selecione apenas 2 times por vez
+//                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+//                                   <span aria-hidden="true">&times;</span>
+//                                 </button>
+//                               </div>`;
+
+//           $('#mensagemErro').find('div').remove();
+//           $('#mensagemErro').append(errorTemplate);
+
+//         }
+
+//       }
+
+//     })
+
+//   }
+// }
