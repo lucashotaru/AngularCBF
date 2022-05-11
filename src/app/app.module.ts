@@ -1,3 +1,4 @@
+import { EstatisticaService } from './Services/estatistica.service';
 import { DownloadTabelaCBFApi } from './apis/downloadTabelaCBF.api';
 import { ImportarCBFApi } from './apis/importarCBF.api';
 import { DataService } from './Services/data.service';
@@ -36,7 +37,7 @@ registerLocaleData(pt);
     BrowserAnimationsModule,
     TooltipModule.forRoot()
   ],
-  providers: [MessageService, DataService, ImportarCBFApi, DownloadTabelaCBFApi,{ provide: NZ_I18N, useValue: pt_PT },],
+  providers: [EstatisticaService, MessageService, DataService, ImportarCBFApi, DownloadTabelaCBFApi,{ provide: NZ_I18N, useValue: pt_PT },],
 
   bootstrap: [AppComponent],
 })
