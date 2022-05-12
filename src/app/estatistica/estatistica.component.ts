@@ -15,10 +15,12 @@ import $ from 'jquery';
 
 export class EstatisticaComponent implements OnInit {
 
-  temporadaList$!:Observable<any[]>;
-  timeList$!:Observable<any[]>;
-  temporadaList:Temporada[]=[];
-  timeList:Times[]=[];
+  temporadaList$!:Observable<Temporada[]>;
+  timeList$!:Observable<Times[]>;
+  temporadaList!:Temporada[];
+  timeList!:Times[];
+  hidTemporada!:string|number;
+  hidAno!:string|number;
 
   //Map
   temporadaMap:Map<number, string> = new Map();
@@ -27,23 +29,32 @@ export class EstatisticaComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.temporadaList$ = this.estatisticaService.getTemporadasList();
-    this.timeList$ = this.estatisticaService.getTimesList();
+    var that = this
+
+    that.temporadaList$ = that.estatisticaService.getTemporadasList();
+    that.timeList$ = that.estatisticaService.getTimesList();
+
+    that.temporadaList$.subscribe(temporadaList => {
+      that.temporadaList = temporadaList
+    });
+
+    that.timeList$.subscribe(timeList => {
+      that.timeList = timeList
+    });
 
   }
 
-  showTimes(ano:number|string){
-    this.getTimes();
+  showTimes(temporadaId:number|string, temporadaAno:string|number){
 
-    for (var time in this.timeList) {
-      console.log(time);
+    this.hidTemporada = temporadaId;
+    this.hidAno = temporadaAno;
+    for (var i = 0; i < this.timeList.length; i++) {
+      var time = this.timeList[i];
+      if (time.temporadaId == temporadaId){
+        console.log(time);
+      }
     }
-  }
 
-  getTimes(){
-    this.estatisticaService.getTimesList().subscribe(
-      times => this.timeList = times
-    )
   }
 
 }

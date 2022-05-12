@@ -7,4 +7,5 @@ export interface Times{
   meioCampo: number;
   defesa: number;
   temporada: Temporada;
+  temporadaId: number;
 }
