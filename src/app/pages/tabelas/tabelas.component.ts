@@ -33,7 +33,7 @@ export class TabelasComponent implements OnInit {
   seriesLista!: SeriesModel [];
   tipo!: string;
   serieSelecionada!: string;
-  @HostBinding("style.--nomeJogador") nomeJogador = 'red';
+  nomeJogador = "'Neymar'";
   corTexto = "text-white";
 
 
@@ -42,10 +42,10 @@ export class TabelasComponent implements OnInit {
   ngOnInit(): void {
     this.tipo = "campeonato-brasileiro"
     this.serieSelecionada = "serie-a"
-    this.filtroTipo();
+    this.filtroTipo();''
     this.buscarTabela();
     this.tabelaRecentes();
-    document.documentElement.style.setProperty("--jogador", "'hgdfifg'");
+    document.documentElement.style.setProperty("--jogador", this.nomeJogador);
   }
 
   filtroTipo()
@@ -82,5 +82,6 @@ export class TabelasComponent implements OnInit {
       .map((time, i) => ({id: i + 1, ...time}))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
+
 }
 
