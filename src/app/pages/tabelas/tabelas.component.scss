@@ -6,6 +6,7 @@ table {
 
 td{
   background: var(--dark-light);
+
 }
 
 .escudos{
@@ -14,8 +15,16 @@ td{
 }
 
 .escudosRecentes{
-  width: 40px;
-  height: 30px;
+  width: 25px;
+  height: 24px;
+}
+
+.espacamento{
+  margin-right: 8px;
+}
+
+.espacamentoEsquerdo{
+  margin-left: 8px;
 }
 
 select {
@@ -85,7 +94,7 @@ option {
   content: var(--jogador);
   position: absolute;
   top: 30%;
-  font-size: 5em;
+  font-size: 5.2em;
   font-weight: 800;
   font-style: italic;
   color: var(--yellow);
@@ -271,10 +280,6 @@ option {
   transition: 0.5s;
 }
 
-.posicao_tabela:hover span {
-  padding-right: 25px;
-}
-
 .posicao_tabela:hover span:after {
   opacity: 1;
   right: 0;
@@ -292,4 +297,16 @@ span:after {
 
 .btn{
   background: var(--dark-light);
+}
+
+.text-vitoria{
+  color: rgb(8, 234, 8);
+}
+
+.text-derrota{
+  color: rgb(255, 36, 36);
+}
+
+.recentesTexto{
+  font-size: 0.75rem;
 }
