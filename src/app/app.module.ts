@@ -20,7 +20,11 @@ import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 import { DataService } from './Services/data.service';
 import { AuthAPI } from './apis/auth.api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthInterceptor, authInterceptorProviders } from './auth/auth.interceptor';
+import { authInterceptorProviders } from './auth/auth.interceptor';
+import { TabelasComponent } from './pages/tabelas/tabelas.component';
+import { TabelasAPI } from './apis/tabelas.api';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 registerLocaleData(pt);
 
@@ -31,6 +35,7 @@ registerLocaleData(pt);
     HomeComponent,
     EstatisticaComponent,
     LoginComponent,
+    TabelasComponent
   ],
   imports: [
     BrowserModule,
@@ -42,12 +47,15 @@ registerLocaleData(pt);
     NgbModule,
     NgxNavbarModule,
     ReactiveFormsModule,
+    CarouselModule,
+    MatSlideToggleModule
   ],
   providers: [
     MessageService,
     DataService,
     DownloadTabelaCBFApi,
     AuthAPI,
+    TabelasAPI,
     { provide: NZ_I18N, useValue: pt_PT },
     authInterceptorProviders
   ],

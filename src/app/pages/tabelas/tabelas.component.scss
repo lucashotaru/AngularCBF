@@ -1,0 +1,312 @@
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+td{
+  background: var(--dark-light);
+
+}
+
+.escudos{
+  width: 20px;
+  height: 18px;
+}
+
+.escudosRecentes{
+  width: 25px;
+  height: 24px;
+}
+
+.espacamento{
+  margin-right: 8px;
+}
+
+.espacamentoEsquerdo{
+  margin-left: 8px;
+}
+
+select {
+  appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  width: 20em;
+  height: 3em;
+  padding: 0 4em 0 1em;
+  color: var(--white);;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  option {
+    color: inherit;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+option {
+  color: var(--white);
+}
+
+.form-select-sm {
+  width: 10em;
+  height: 2em;
+}
+
+//card
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.card-jogador {
+  font-family: "Poppins", sans-serif;
+}
+
+.card_jogador_container {
+  position: relative;
+}
+
+.card_jogador_container .card {
+  position: relative;
+  width: 320px;
+  height: 450px;
+  background: var(--dark-light);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card_jogador_container .card:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.5s ease-in-out;
+}
+
+.card_jogador_container .card:hover:before {
+  clip-path: circle(300px at 80% -20%);
+}
+
+.card_jogador_container .card:after {
+  content: var(--jogador);
+  position: absolute;
+  top: 30%;
+  font-size: 5.2em;
+  font-weight: 800;
+  font-style: italic;
+  color: var(--yellow);
+}
+
+.card_jogador_container .card .imgBx {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  width: 100%;
+  height: 220px;
+  transition: 0.5s;
+}
+
+.card_jogador_container .card .imgBx img {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  width: 175px;
+}
+
+.card_jogador_container .card .contentBx {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  transition: 1s;
+  z-index: 10;
+}
+
+.card_jogador_container .card:hover .contentBx {
+  height: 210px;
+}
+
+.card_jogador_container .card .contentBx h2 {
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color:  var(--white);
+  margin: 0;
+}
+
+.card_jogador_container .card .contentBx .size,
+.card_jogador_container .card .contentBx .color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.card_jogador_container .card:hover .contentBx .size {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.5s;
+}
+
+.card_jogador_container .card:hover .contentBx .color {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.6s;
+}
+
+.card_jogador_container .card .contentBx .size h3,
+.card_jogador_container .card .contentBx .color h3 {
+  color:  var(--white);
+  font-weight: 300;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-right: 10px;
+}
+
+.card_jogador_container .card .contentBx a {
+  display: inline-block;
+  padding: 10px 20px;
+  background:  var(--white);
+  border-radius: 4px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  color:  var(--black);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.5s;
+  margin-top: 0;
+}
+
+.card_jogador_container .card:hover .contentBx a {
+  opacity: 1;
+  transform: translateY(0px);
+  transition-delay: 0.75s;
+}
+
+.pagination label {
+  float: left;
+  display: block;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 5px 12px;
+  color:  var(--white);
+  margin-left: -1px;
+  border: 1px solid transparent;
+  line-height: 1.5;
+}
+.pagination label.active {
+  cursor: default;
+}
+.pagination label:active {
+  outline: none;
+}
+
+.modal-3 label {
+  margin-left: 3px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+}
+.modal-3 label:hover {
+  background-color: var(--dark-light);
+}
+.modal-3 label.active,
+.modal-3 a:active {
+  background-color: var(--dark-light);
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+
+
+#ouro {
+  background-color: var(--ouro);
+  border: 1px solid var(--ouro);
+}
+
+#prata {
+  background-color: var(--prata);
+  border: 1px solid var(--prata);
+}
+
+#bronze {
+  background-color: var(--bronze);
+  border: 1px solid var(--bronze);
+}
+
+#outrasposicoes{
+  background-color: var(--dark-light);
+  border: 1px solid var(--dark-light);
+}
+
+.posicao_tabela {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.09), 0 6px 15px 0 rgba(0, 0, 0, 0.09);
+  margin-top: 10px;
+  padding: 10px 17px 10px 17px;
+    font: 15px Ubuntu;
+  color: white;
+  border-radius: 7px;
+}
+
+.posicao_tabela span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.posicao_tabela span:after {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.posicao_tabela:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+span:after {
+  font-family: FontAwesome;
+  content: "\f107";
+}
+
+.tabelaJogosRecentes{
+  border-radius: 15px;
+  background: var(--dark-light);
+}
+
+.btn{
+  background: var(--dark-light);
+}
+
+.text-vitoria{
+  color: rgb(8, 234, 8);
+}
+
+.text-derrota{
+  color: rgb(255, 36, 36);
+}
+
+.recentesTexto{
+  font-size: 0.75rem;
+}

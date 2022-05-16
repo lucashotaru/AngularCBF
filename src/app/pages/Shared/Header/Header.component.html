@@ -1,21 +1,28 @@
-<header class="p-3 mb-3 shadow bg-dark">
-  <div class="container">
+<header class="p-2 mb-3 shadow header">
+  <div class="container-fluid">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+      <a class="mb-2 mb-lg-0 text-decoration-none text-light justify-content-start ">
+        <img class="bi me-2" width="40" height="32" src="../../../../assets/img/logo.png" alt=""> CBF Barigui
       </a>
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a class="nav-link px-2 link-light"><i class="bi bi-table"></i>  Tabelas</a></li>
-        <li><a class="nav-link px-2 link-light"><i class="bi bi-pie-chart"></i>  Estatística</a></li>
-        <li><a class="nav-link px-2 link-light"><i class="bi bi-newspaper"></i>  Noticias</a></li>
-        <li><a class="nav-link px-2 link-light"><i class="bi bi-display"></i>  Transmissões</a></li>
+      <ul class="nav col-10 offset-1 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li routerLink="tabelas"><a class="nav-link px-2 text-light"><i class="bi bi-table"></i>  Tabelas</a></li>
+        <li><a class="nav-link px-2 text-light"><i class="bi bi-pie-chart"></i>  Estatística</a></li>
+        <li><a class="nav-link px-2 text-light"><i class="bi bi-newspaper"></i>  Noticias</a></li>
+        <li><a class="nav-link px-2 text-light"><i class="bi bi-display"></i>  Transmissões</a></li>
       </ul>
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 content">
+        <div class="container h-100">
+          <div class="d-flex justify-content-center h-100">
+            <div class="searchbar">
+              <input class="search_input" type="text" name="" placeholder="Buscar...">
+              <a href="#" class="search_icon"><i class="bi bi-search"></i></a>
+            </div>
+          </div>
+        </div>
       </form>
       <div ngbDropdown class="d-inline-block">
         <a class="nav-link px-2 link-light" tabindex="0" ngbDropdownToggle id="usuario" role="button">
-          <img class="avatar" *ngIf="isLoggedIn" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png">
+          <img class="avatar logado" *ngIf="isLoggedIn" src="https://www.bitmag.com.br/wp-content/uploads/2022/01/Review-Solo-Leveling-nao-e-so-mais-um-Shounen-750x450-1.png">
           <img class="avatar" *ngIf="!isLoggedIn" src="../../../../assets/img/avatar.svg">
         </a>
         <div ngbDropdownMenu aria-labelledby="dropdownForm1">
@@ -26,6 +33,9 @@
             <li><a class="dropdown-item" *ngIf="mostrarPainelAdmin">Painel admin</a></li>
             <li><a class="dropdown-item">Configurações</a></li>
             <li><a class="dropdown-item">Perfil</a></li>
+            <li>
+
+            </li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" (click)="logout()">Sair</a></li>
           </div>
@@ -35,3 +45,5 @@
     </div>
   </div>
 </header>
+
+

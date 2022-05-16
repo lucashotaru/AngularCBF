@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { AuthAPI } from '../apis/auth.api';
 
-const AUTH_API = 'https://localhost:7126/api/Identity/';
+const AUTH_API = 'https://localhost:7126/';
 
 @Injectable()
 export class DataService {
@@ -31,8 +31,9 @@ export class DataService {
         .get<T>(api, { params: params, responseType: 'blob' as 'json' })
         .toPromise<T>();
     } else {
-      response = this.httpClient.get<T>(api, { params: params }).toPromise<T>();
+      response = this.httpClient.get<T>(AUTH_API+api, { params: params }).toPromise<T>();
     }
+    console.log(response)
     return response;
   }
 

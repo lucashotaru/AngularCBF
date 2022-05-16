@@ -1,18 +1,20 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './auth/Login/Login.component';
-import { PerfilComponent } from './auth/Perfil/Perfil.component';
 import { RegistroComponent } from './auth/Registro/Registro.component';
-import { HeaderComponent } from './pages/Shared/Header/Header.component';
+import { EstatisticaComponent } from './pages/estatistica/estatistica.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 import { HomeComponent } from './pages/Shared/home/home.component';
+import { TabelasComponent } from './pages/tabelas/tabelas.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
+  { path: 'tabelas', component: TabelasComponent },
   { path: 'perfil', component: PerfilComponent },
-  { path: 'header', component:  HeaderComponent}
+  { path: 'estatisticas', component: EstatisticaComponent }
 ];
 
 @NgModule({
