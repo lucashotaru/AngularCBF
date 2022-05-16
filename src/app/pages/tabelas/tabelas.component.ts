@@ -12,6 +12,8 @@ import { CopadoBrasil } from 'dados/CopadoBrasil';
 import { Supercopa } from 'dados/Supercopa';
 import { TabelaJogosRecentesModel } from 'src/app/models/tabelaJogosRecentes';
 import { BrasaoTimeLista } from 'dados/BrasaoTimeLista';
+import { CardJogadorModel } from 'src/app/models/CardJogadorModel';
+import { CardJogadorLista } from 'dados/CardJogadorLista';
 
 
 @Component({
@@ -31,9 +33,10 @@ export class TabelasComponent implements OnInit {
   brasaoTime: BrasaoTimeModel[] = BrasaoTimeLista;
   botaoDataLista: DataModel[] = DataLista;
   seriesLista!: SeriesModel [];
+  cardJogadorLista: CardJogadorModel[] = CardJogadorLista;
+  nomeJogadorAtualCard!: String;
   tipo!: string;
   serieSelecionada!: string;
-  nomeJogador = "'Neymar'";
   corTexto = "text-white";
 
 
@@ -45,7 +48,8 @@ export class TabelasComponent implements OnInit {
     this.filtroTipo();''
     this.buscarTabela();
     this.tabelaRecentes();
-    document.documentElement.style.setProperty("--jogador", this.nomeJogador);
+    this.nomeJogadorAtualCard = this.cardJogadorLista[0].nomeJogador;
+    document.documentElement.style.setProperty("--jogador", `'${this.nomeJogadorAtualCard}'`);
   }
 
   filtroTipo()
@@ -82,6 +86,5 @@ export class TabelasComponent implements OnInit {
       .map((time, i) => ({id: i + 1, ...time}))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
-
 }
 
