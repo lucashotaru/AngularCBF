@@ -1,3 +1,4 @@
+import { EstatisticaService } from './Services/estatistica.service';
 import { DownloadTabelaCBFApi } from './apis/downloadTabelaCBF.api';
 import { MessageService } from './Services/messages.service';
 import { NgModule } from '@angular/core';
@@ -59,6 +60,10 @@ registerLocaleData(pt);
     { provide: NZ_I18N, useValue: pt_PT },
     authInterceptorProviders
   ],
+<<<<<<< HEAD
+=======
+  providers: [EstatisticaService, MessageService, DataService, ImportarCBFApi, DownloadTabelaCBFApi,{ provide: NZ_I18N, useValue: pt_PT },],
+>>>>>>> layout-estatistica
 
   bootstrap: [AppComponent],
 })
