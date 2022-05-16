@@ -1,4 +1,4 @@
-import { SeriesModel } from '../models/SeriesModel';
+import { SeriesModel } from '../src/app/models/SeriesModel';
 
 export const Supercopa: SeriesModel[] = [
   {

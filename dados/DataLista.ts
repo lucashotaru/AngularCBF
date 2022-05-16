@@ -1,4 +1,4 @@
-import { DataModel } from "../models/DataModel";
+import { DataModel } from "../src/app/models/DataModel";
 
 export const DataLista: DataModel[] = [
   {

@@ -4,14 +4,14 @@ import { TabelasModel } from 'src/app/models/Tabelas.model';
 import { SeriesModel } from '../../models/SeriesModel';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { CampeonatoBrasileiro } from 'src/app/enum/CampeonatoBrasileiro';
+import { CampeonatoBrasileiro } from 'dados/CampeonatoBrasileiro';
 import { BrasaoTimeModel } from 'src/app/models/brasaoTime';
-import { BrasaoTimeLista } from 'src/app/enum/BrasaoTimeLista';
 import { DataModel } from 'src/app/models/DataModel';
-import { DataLista } from 'src/app/enum/DataLista';
-import { CopadoBrasil } from 'src/app/enum/CopadoBrasil';
-import { Supercopa } from 'src/app/enum/Supercopa';
+import { DataLista } from 'dados/DataLista';
+import { CopadoBrasil } from 'dados/CopadoBrasil';
+import { Supercopa } from 'dados/Supercopa';
 import { TabelaJogosRecentesModel } from 'src/app/models/tabelaJogosRecentes';
+import { BrasaoTimeLista } from 'dados/BrasaoTimeLista';
 
 
 @Component({

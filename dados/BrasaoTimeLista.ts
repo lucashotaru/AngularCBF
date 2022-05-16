@@ -1,4 +1,4 @@
-import { BrasaoTimeModel } from "../models/brasaoTime";
+import { BrasaoTimeModel } from "../src/app/models/brasaoTime";
 
 export const BrasaoTimeLista: BrasaoTimeModel[] = [
   {

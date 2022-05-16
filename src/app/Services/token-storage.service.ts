@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import jwt_decode from "jwt-decode";
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
@@ -26,8 +25,6 @@ export class TokenStorageService {
   public saveUser(user: any): void {
     localStorage.removeItem(USER_KEY);
     localStorage.setItem(USER_KEY, JSON.stringify(user));
-    var decoded = jwt_decode(this.token);
-    console.log(decoded);
   }
 
   public getRole(): any {
