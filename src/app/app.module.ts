@@ -17,7 +17,6 @@ import { LoginComponent } from './auth/Login/Login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './pages/Shared/home/home.component';
 import { HeaderComponent } from './pages/Shared/Header/Header.component';
-import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 import { DataService } from './Services/data.service';
 import { AuthAPI } from './apis/auth.api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -46,7 +45,6 @@ registerLocaleData(pt);
     BrowserAnimationsModule,
     TooltipModule.forRoot(),
     NgbModule,
-    NgxNavbarModule,
     ReactiveFormsModule,
     CarouselModule,
     MatSlideToggleModule
@@ -58,12 +56,12 @@ registerLocaleData(pt);
     AuthAPI,
     TabelasAPI,
     { provide: NZ_I18N, useValue: pt_PT },
-    authInterceptorProviders
+    authInterceptorProviders,
+    EstatisticaService,
+    MessageService,
+    DataService,
+    DownloadTabelaCBFApi,
   ],
-<<<<<<< HEAD
-=======
-  providers: [EstatisticaService, MessageService, DataService, ImportarCBFApi, DownloadTabelaCBFApi,{ provide: NZ_I18N, useValue: pt_PT },],
->>>>>>> layout-estatistica
 
   bootstrap: [AppComponent],
 })

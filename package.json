@@ -22,16 +22,8 @@
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
-<<<<<<< HEAD
-    "angular-dark-mode": "^3.0.2",
-    "bootstrap": "^4.5.0",
-    "bootstrap-icons": "^1.8.1",
-    "jwt-decode": "^3.1.2",
-    "jwthelper": "^0.0.4",
-=======
     "bootstrap": "^4.6.1",
     "jquery": "^3.6.0",
->>>>>>> layout-estatistica
     "ng-zorro-antd": "^12.1.1",
     "ngx-bootstrap": "^7.1.2",
     "ngx-bootstrap-navbar": "^1.0.0",
