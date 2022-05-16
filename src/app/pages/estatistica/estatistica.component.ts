@@ -48,6 +48,7 @@ export class EstatisticaComponent implements OnInit {
 
     this.hidTemporada = temporadaId;
     this.hidAno = temporadaAno;
+
     for (var i = 0; i < this.timeList.length; i++) {
       var time = this.timeList[i];
       if (time.temporadaId == temporadaId){

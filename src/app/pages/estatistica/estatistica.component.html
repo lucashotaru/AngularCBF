@@ -1,3 +1,4 @@
+<app-Header></app-Header>
 <div class="container-fluid">
   <div class="row mt-4">
 
@@ -9,22 +10,29 @@
       </div>
     </div>
 
-    <div class="col-xs-10 col-md-10" *ngIf="hidTemporada != null || hidTemporada != undefined">
+    <div class="col-xs-10 col-md-10" *ngIf="hidTemporada != null || hidTemporada != undefined; else noTemp">
       <h2 class="text-light">Temporada {{ hidAno }}</h2>
 
       <div class="container-fluid mb-3">
-        <div class="row justify-content-around mb-2">
-          <div class="col-xs-3 col-md-3" *ngFor="let time of timeList">
+        <div class="row row-cols-10 justify-content-around mb-2">
+          <div class="col" *ngFor="let time of timeList">
             <div *ngIf="time.temporadaId == hidTemporada">
-              <button class="btn btn-customizado btn-time">
-                {{ time.nome }}
-                <!-- <img src="../../assets/img/times/{{ time.nome }}.png" alt="{{ time.nome }}"> -->
+              <button class="btn btn-customizado btn-time my-1">
+                <img src="../../assets/img/times/{{ time.nome }}.png" alt="{{ time.nome }}">
               </button>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <ng-template #noTemp>
+      <div class="col-xs-10 col-md-10 d-flex align-items-center">
+        <div class="container-fluid d-flex justify-content-center">
+          <p id="noTempText" class="text-light font-weight-bold">Selecione uma temporada</p>
+        </div>
+      </div>
+    </ng-template>
 
   </div>
 </div>
