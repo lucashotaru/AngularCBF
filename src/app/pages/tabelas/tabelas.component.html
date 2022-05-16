@@ -50,10 +50,10 @@
                 <a class="d-none d-md-block">{{item.nome}}</a>
                 <a class="d-none d-sm-block d-md-none d-lg-none">{{item.siglaTime}}</a>
               </td>
-              <td class="" scope="row">{{ item.pontos| number}}</td>
-              <td class="text-vitoria" scope="row">{{ item.vitorias| number }}</td>
-              <td class="text-derrota" scope="row">{{ item.derrotas| number }}</td>
-              <td class="" scope="row">{{ item.empates| number }}</td>
+              <td class="" scope="row">{{ item.pontos}}</td>
+              <td class="text-vitoria" scope="row">{{ item.vitorias }}</td>
+              <td class="text-derrota" scope="row">{{ item.derrotas }}</td>
+              <td class="" scope="row">{{ item.empates }}</td>
             </tr>
           </tbody>
         </table>
@@ -89,9 +89,9 @@
       </div>
       <table [ngClass]="'table table-borderless text-center mt-5 shadow col-md-10 offset-1 tabelaJogosRecentes '+ corTexto">
         <thead>
-          <h3 class="d-flex justify-content-center">
+          <h2 class="d-flex justify-content-center">
             Jogos Recentes
-          </h3>
+          </h2>
         </thead>
         <tbody>
           <tr *ngFor="let item of tabelaJogosRecentes" class="recentesTexto">
