@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ThemeService } from 'src/app/Services/theme.service';
 import { TokenStorageService } from 'src/app/Services/token-storage.service';
 
 @Component({
@@ -8,6 +10,7 @@ import { TokenStorageService } from 'src/app/Services/token-storage.service';
 })
 export class HeaderComponent implements OnInit {
   isCollapsed = true;
+  isDarkTheme!: Observable<boolean>;
 
   private roles: string[] = [];
   isLoggedIn = false;
@@ -17,11 +20,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (this.isLoggedIn) {
-      const user = this.tokenStorageService.getUser();
-      this.roles = user.roles;
-      this.username = user.username;
     }
   }
+
   logout(): void {
     this.tokenStorageService.signOut();
     window.location.reload();
