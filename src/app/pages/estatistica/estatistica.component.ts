@@ -19,8 +19,11 @@ export class EstatisticaComponent implements OnInit {
   timeList$!:Observable<Times[]>;
   temporadaList!:Temporada[];
   timeList!:Times[];
+  timesTemporada!:Times[];
   hidTemporada!:string|number;
   hidAno!:string|number;
+  hidFirstTime!:Times;
+  hidSecTime!:Times;
 
   //Map
   temporadaMap:Map<number, string> = new Map();
@@ -42,18 +45,51 @@ export class EstatisticaComponent implements OnInit {
       that.timeList = timeList
     });
 
+    $('#hid_temporada').change(function () {
+      //Apagar hidFirstTime e hidSecTime
+    });
+
   }
 
   showTimes(temporadaId:number|string, temporadaAno:string|number){
 
     this.hidTemporada = temporadaId;
     this.hidAno = temporadaAno;
+    $('#hid_temporada').val(this.hidTemporada);
+
+    var timesTemporadaAux:Times[] = [];
 
     for (var i = 0; i < this.timeList.length; i++) {
       var time = this.timeList[i];
       if (time.temporadaId == temporadaId){
-        console.log(time);
+        timesTemporadaAux.push(time);
       }
+    }
+
+    timesTemporadaAux.sort(function (a, b):any {
+
+      if (a.nome < b.nome)
+        return -1
+
+      if (a.nome > b.nome)
+        return 1
+
+      return 0;
+
+    });
+
+    this.timesTemporada = timesTemporadaAux;
+
+  }
+
+  selectTime (time:Times) {
+
+    var that = this;
+
+    if (that.hidFirstTime == undefined || that.hidFirstTime == null){
+      that.hidFirstTime = time;
+    } else if (that.hidSecTime == undefined || that.hidSecTime == null) {
+      that.hidSecTime = time;
     }
 
   }

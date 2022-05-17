@@ -1,4 +1,7 @@
 <app-Header></app-Header>
+
+<input type="hidden" name="hid_temporada" id="hid_temporada">
+
 <div class="container-fluid">
   <div class="row mt-4">
 
@@ -11,25 +14,53 @@
     </div>
 
     <div class="col-xs-10 col-md-10" *ngIf="hidTemporada != null || hidTemporada != undefined; else noTemp">
-      <h2 class="text-light">Temporada {{ hidAno }}</h2>
+      <div class="row">
+        <h2 class="text-light">Temporada {{ hidAno }}</h2>
+      </div>
 
       <div class="container-fluid mb-3">
         <div class="row row-cols-10 justify-content-around mb-2">
-          <div class="col" *ngFor="let time of timeList">
+          <div class="col" *ngFor="let time of timesTemporada">
             <div *ngIf="time.temporadaId == hidTemporada">
-              <button class="btn btn-customizado btn-time my-1">
+              <button class="btn btn-customizado btn-time my-1" (click)="selectTime(time)">
                 <img src="../../assets/img/times/{{ time.nome }}.png" alt="{{ time.nome }}">
               </button>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="container-fluid" *ngIf="hidFirstTime != undefined && hidFirstTime != null; else noTeam">
+        <div class="row">
+          <div class="col-xs-3 col-md-3 d-flex justify-content-center first_team">
+            <img src="../../../assets/img/times/{{ hidFirstTime.nome }}.png" alt="{{hidFirstTime.nome}}">
+          </div>
+          <div class="col-xs-6 col-md-6 d-flex justify-content-center">
+            <p>Chart</p>
+          </div>
+          <div class="col-xs-3 col-md-3 d-flex justify-content-cener sec_team">
+            <img src="../../../assets/img/times/{{ hidSecTime.nome }}.png" alt="{{hidSecTime.nome}}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col d-flex justify-content-center">
+            <button class="btn btn-danger">Limpar</button>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #noTeam>
+        <div class="container-fluid d-flex justify-content-center mt-5">
+            <p id="noTeamText" class="text-light">Selecione um time</p>
+        </div>
+      </ng-template>
+
     </div>
 
     <ng-template #noTemp>
       <div class="col-xs-10 col-md-10 d-flex align-items-center">
         <div class="container-fluid d-flex justify-content-center">
-          <p id="noTempText" class="text-light font-weight-bold">Selecione uma temporada</p>
+          <p id="noTempText" class="text-light">Selecione uma temporada</p>
         </div>
       </div>
     </ng-template>
