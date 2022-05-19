@@ -33,13 +33,107 @@
       <div class="container-fluid" *ngIf="hidFirstTime != undefined && hidFirstTime != null; else noTeam">
         <div class="row">
           <div class="col-xs-3 col-md-3 d-flex justify-content-center first_team">
-            <img src="../../../assets/img/times/{{ hidFirstTime.nome }}.png" alt="{{hidFirstTime.nome}}">
+            <img class="img-responsive img-time" src="../../../assets/img/times/{{ hidFirstTime.nome }}.png" alt="{{hidFirstTime.nome}}">
           </div>
           <div class="col-xs-6 col-md-6 d-flex justify-content-center">
-            <p>Chart</p>
+            <ng-container *ngIf="hidFirstTime != undefined && hidFirstTime != null; else twoTeamChart">
+              <canvas id="myChartOne"></canvas>
+              <script>
+                const dataOne = {
+                  labels: [
+                    'Ataque',
+                    'Meio Campo',
+                    'Defesa'
+                  ],
+                  datasets: [{
+                    label: hidFirstTime.nome,
+                    data: [hidFirstTime.ataque, hidFirstTime.meioCampo, hidFirstTime.defesa],
+                    fill: true,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(255, 99, 132)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(255, 99, 132)'
+                  }]
+                }
+
+                const configOne = {
+                  type: 'radar',
+                  data: data,
+                  options: {
+                    elements: {
+                      line: {
+                        borderWidth: 3
+                      }
+                    }
+                  },
+                };
+
+                const myChartOne = new Chart(
+                  document.getElementById('myChartOne'),
+                  config
+                );
+              </script>
+            </ng-container>
+
+            <ng-template #twoTeamChart>
+              <ng-container *ngIf="hidSecTime != undefined && hidSecTime != null; else noTeamChart">
+                <canvas id="myChartTwo"></canvas>
+              <script>
+                const dataTwo = {
+                  labels: [
+                    'Ataque',
+                    'Meio Campo',
+                    'Defesa'
+                  ],
+                  datasets: [{
+                    label: hidFirstTime.nome,
+                    data: [hidFirstTime.ataque, hidFirstTime.meioCampo, hidFirstTime.defesa],
+                    fill: true,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(255, 99, 132)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(255, 99, 132)'
+                  }, {
+                    label: hidSecTime.nome,
+                    data: [hidSecTime.ataque, hidSecTime.meioCampo, hidSecTime.defesa],
+                    fill: true,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgb(54, 162, 235)',
+                    pointBackgroundColor: 'rgb(54, 162, 235)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(54, 162, 235)'
+                  }]
+                }
+
+                const configTwo = {
+                  type: 'radar',
+                  data: data,
+                  options: {
+                    elements: {
+                      line: {
+                        borderWidth: 3
+                      }
+                    }
+                  },
+                };
+
+                const myChart = new Chart(
+                  document.getElementById('myChartTwo'),
+                  config
+                );
+              </script>
+              </ng-container>
+            </ng-template>
+
+            <ng-template #noTeamChart></ng-template>
           </div>
           <div class="col-xs-3 col-md-3 d-flex justify-content-cener sec_team">
-            <img src="../../../assets/img/times/{{ hidSecTime.nome }}.png" alt="{{hidSecTime.nome}}">
+            <img class="img-responsive img-time" src="../../../assets/img/times/{{ hidSecTime.nome }}.png" alt="{{hidSecTime.nome}}">
           </div>
         </div>
         <div class="row">
