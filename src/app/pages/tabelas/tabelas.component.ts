@@ -1,9 +1,8 @@
-import { Component, ElementRef, HostBinding, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { TabelasAPI } from 'src/app/apis/tabelas.api';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { TabelasModel } from 'src/app/models/Tabelas.model';
 import { SeriesModel } from '../../models/SeriesModel';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { CampeonatoBrasileiro } from 'dados/CampeonatoBrasileiro';
 import { BrasaoTimeModel } from 'src/app/models/brasaoTime';
 import { DataModel } from 'src/app/models/DataModel';
@@ -14,12 +13,14 @@ import { TabelaJogosRecentesModel } from 'src/app/models/tabelaJogosRecentes';
 import { BrasaoTimeLista } from 'dados/BrasaoTimeLista';
 import { CardJogadorModel } from 'src/app/models/CardJogadorModel';
 import { CardJogadorLista } from 'dados/CardJogadorLista';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
   selector: 'app-tabelas',
   templateUrl: './tabelas.component.html',
-  styleUrls: ['./tabelas.component.scss']
+  styleUrls: ['./tabelas.component.scss'],
+  providers: [NgbCarouselConfig]
 })
 export class TabelasComponent implements OnInit {
   ano = 2021;
@@ -38,9 +39,9 @@ export class TabelasComponent implements OnInit {
   tipo!: string;
   serieSelecionada!: string;
   corTexto = "text-white";
+  showNavigationIndicators = false;
 
-
-  constructor(private api: TabelasAPI, private http: HttpClient, private formBuilder: FormBuilder, private renderer: Renderer2, private el: ElementRef) {}
+  constructor(private http: HttpClient, private formBuilder: FormBuilder, private renderer: Renderer2, private el: ElementRef) {}
 
   ngOnInit(): void {
     this.tipo = "campeonato-brasileiro"
@@ -48,11 +49,13 @@ export class TabelasComponent implements OnInit {
     this.filtroTipo();''
     this.buscarTabela();
     this.tabelaRecentes();
-    this.nomeJogadorAtualCard = this.cardJogadorLista[0].nomeJogador;
-    document.documentElement.style.setProperty("--jogador", `'${this.nomeJogadorAtualCard}'`);
   }
 
-  filtroTipo()
+  async retorno(){
+
+  }
+
+  filtroTipo(): void
   {
     if(this.tipo == "campeonato-brasileiro")
     {
@@ -86,5 +89,5 @@ export class TabelasComponent implements OnInit {
       .map((time, i) => ({id: i + 1, ...time}))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
-}
 
+}

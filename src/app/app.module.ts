@@ -1,5 +1,4 @@
 import { EstatisticaService } from './Services/estatistica.service';
-import { DownloadTabelaCBFApi } from './apis/downloadTabelaCBF.api';
 import { MessageService } from './Services/messages.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,14 +16,13 @@ import { LoginComponent } from './auth/Login/Login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './pages/Shared/home/home.component';
 import { HeaderComponent } from './pages/Shared/Header/Header.component';
-import { DataService } from './Services/data.service';
-import { AuthAPI } from './apis/auth.api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { authInterceptorProviders } from './auth/auth.interceptor';
 import { TabelasComponent } from './pages/tabelas/tabelas.component';
-import { TabelasAPI } from './apis/tabelas.api';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { AdminPainelComponent } from './pages/adminPainel/adminPainel.component';
+import { AbaTabelasComponent } from './pages/adminPainel/aba-tabelas/aba-tabelas.component';
+
 
 registerLocaleData(pt);
 
@@ -35,7 +33,9 @@ registerLocaleData(pt);
     HomeComponent,
     EstatisticaComponent,
     LoginComponent,
-    TabelasComponent
+    TabelasComponent,
+    AdminPainelComponent,
+    AbaTabelasComponent
   ],
   imports: [
     BrowserModule,
@@ -46,21 +46,15 @@ registerLocaleData(pt);
     TooltipModule.forRoot(),
     NgbModule,
     ReactiveFormsModule,
-    CarouselModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+
   ],
   providers: [
     MessageService,
-    DataService,
-    DownloadTabelaCBFApi,
-    AuthAPI,
-    TabelasAPI,
     { provide: NZ_I18N, useValue: pt_PT },
     authInterceptorProviders,
     EstatisticaService,
     MessageService,
-    DataService,
-    DownloadTabelaCBFApi,
   ],
 
   bootstrap: [AppComponent],
