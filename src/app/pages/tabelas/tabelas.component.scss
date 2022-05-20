@@ -79,6 +79,12 @@ option {
   overflow: hidden;
 }
 
+.card_jogador_container .carousel {
+  width: 320px;
+  height: 450px;
+}
+
+
 .card_jogador_container .card:before {
   position: absolute;
   top: 0;
@@ -93,11 +99,10 @@ option {
   clip-path: circle(300px at 80% -20%);
 }
 
-.card_jogador_container .card:after {
-  content: var(--jogador);
+.card_jogador_container h2 {
   position: absolute;
   top: 30%;
-  font-size: 5.2em;
+  font-size: 6em;
   font-weight: 800;
   font-style: italic;
   color: var(--yellow);
@@ -112,7 +117,7 @@ option {
   transition: 0.5s;
 }
 
-.card_jogador_container .card .imgBx img {
+.card_jogador_container .card .imgBx input {
   position: absolute;
   top: 100%;
   left: 50%;
@@ -134,7 +139,7 @@ option {
   height: 210px;
 }
 
-.card_jogador_container .card .contentBx h2 {
+.card_jogador_container .card .contentBx h3 {
   position: relative;
   font-weight: 600;
   letter-spacing: 1px;
@@ -167,8 +172,8 @@ option {
   transition-delay: 0.6s;
 }
 
-.card_jogador_container .card .contentBx .size h3,
-.card_jogador_container .card .contentBx .color h3 {
+.card_jogador_container .card .contentBx .size h4,
+.card_jogador_container .card .contentBx .color h4 {
   color:  var(--white);
   font-weight: 300;
   font-size: 14px;

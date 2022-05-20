@@ -68,22 +68,27 @@
    </div>
   </div>
   <div class="card-jogador col-md-4 col-sm-12">
-   <div class="card_jogador_container offset-2" [(ngModel)]="nomeJogadorAtualCard">
-    <div class="card" *ngFor="let item of cardJogadorLista">
-     <div class="imgBx">
-      <img src="{{item.ImagemJogador}}">
-     </div>
-     <div class="contentBx">
-      <h2>Menino Ney</h2>
-      <div class="size">
-       <h3>Menino</h3>
-      </div>
-      <div class="color">
-       <h3>Ney</h3>
-      </div>
-      <!-- <a class="btn btn-md shadow">Seguir</a> -->
-     </div>
-    </div>
+   <div class="card_jogador_container offset-2">
+    <ngb-carousel class="carousel" [showNavigationIndicators]="showNavigationIndicators" ngmode>
+      <ng-template ngbSlide *ngFor="let item of cardJogadorLista" >
+        <div class="card">
+          <h2>{{item.nomeJogador}}</h2>
+          <div class="imgBx">
+            <input type="image" src="{{item.ImagemJogador}}">
+          </div>
+          <div class="contentBx">
+            <div class="size">
+              <h3 class="m-3">{{item.nomeJogador}}</h3>
+            </div>
+            <div class="color">
+              <h4>Ney</h4>
+            </div>
+            <a class="btn btn-md shadow mt-5">Seguir</a>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+
    </div>
    <div>
    </div>

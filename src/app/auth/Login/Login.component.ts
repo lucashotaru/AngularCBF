@@ -1,9 +1,6 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AuthAPI } from 'src/app/apis/auth.api';
-import { Usuario } from 'src/app/models/Usuario.model';
+
 import { AuthService } from 'src/app/Services/auth.service';
-import { DataService } from 'src/app/Services/data.service';
 import { TokenStorageService } from 'src/app/Services/token-storage.service';
 
 
