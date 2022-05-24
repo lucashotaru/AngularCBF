@@ -1,33 +1,35 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpRequest, HttpEvent, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpRequest,
+  HttpEvent,
+  HttpResponse,
+} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-   "Content-Type": "multipart/form-data"
-  })
-};
+@Injectable()
+export class UploadDownloadService {
+  private baseApiUrl: string;
+  private apiDownloadUrl: string;
+  private apiUploadUrl: string;
 
-
-@Injectable({
-  providedIn: 'root'
-})
-export class FileUploadService {
-  private baseUrl = 'http://localhost:7126';
-
-
-  constructor(private http: HttpClient) { }
-  upload(file: File): Observable<HttpEvent<any>> {
-    const formData: FormData = new FormData();
-    formData.append('file', file);
-    const req = new HttpRequest('POST', `${this.baseUrl}/api/PainelAdmin/importar-jogos-cbf`, formData, {
-      headers: undefined,
-      reportProgress: true,
-      responseType: 'json'
-    });
-    return this.http.request(req);
+  constructor(private httpClient: HttpClient) {
+    this.baseApiUrl = 'https://localhost:7126';
+    this.apiDownloadUrl = this.baseApiUrl + '/api/PainelAdmin/download';
+    this.apiUploadUrl = this.baseApiUrl + '/api/PainelAdmin/upload';
   }
-  getFiles(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/files`);
+
+  public downloadFile(): Observable<HttpEvent<Blob>> {
+    return this.httpClient.get<any>(this.apiDownloadUrl, {responseType: 'blob' as 'json' });
+  }
+
+  
+
+  public uploadFile(file: Blob): Observable<HttpEvent<void>> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.httpClient.request(
+      new HttpRequest('POST', this.apiUploadUrl, formData, {})
+    );
   }
 }
