@@ -14,6 +14,7 @@ import { BrasaoTimeLista } from 'dados/BrasaoTimeLista';
 import { CardJogadorModel } from 'src/app/models/CardJogadorModel';
 import { CardJogadorLista } from 'dados/CardJogadorLista';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Client } from 'src/app/apis/PainelAdmin.api';
 
 
 @Component({
@@ -41,7 +42,8 @@ export class TabelasComponent implements OnInit {
   corTexto = "text-white";
   showNavigationIndicators = false;
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder, private renderer: Renderer2, private el: ElementRef) {}
+
+  constructor(private http: HttpClient, private formBuilder: FormBuilder, private renderer: Renderer2, private el: ElementRef, private date: Client) {}
 
   ngOnInit(): void {
     this.tipo = "campeonato-brasileiro"
@@ -79,8 +81,10 @@ export class TabelasComponent implements OnInit {
     this.colecao = this.TabelaPrincipalData.length
   }
 
-  async tabelaRecentes(){
-    this.tabelaJogosRecentes = await this.http.get<TabelaJogosRecentesModel[]>(`https://localhost:7126/api/Tabelas/tabela-jogos-recentes`).toPromise<TabelaJogosRecentesModel[]>();
+  async tabelaRecentes(): Promise<any>{
+    var a  = this.date.tabelaJogosRecentes().toPromise();
+    console.log(a);
+    //this.tabelaJogosRecentes = await this.http.get<TabelaJogosRecentesModel[]>(`https://localhost:7126/api/Tabelas/tabela-jogos-recentes`).toPromise<TabelaJogosRecentesModel[]>();
   }
 
   mudaPagina() {

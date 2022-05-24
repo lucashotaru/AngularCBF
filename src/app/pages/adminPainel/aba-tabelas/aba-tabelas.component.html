@@ -1,4 +1,4 @@
-<!-- <div class="container mt-5">
+<div class="container mt-5">
   <div class="row mt-5 offset-md-3">
     <div class="card col-5">
       <div class="face face1">
@@ -27,10 +27,24 @@
           <p class="col-12">
             Upar a tabela pode levar até um minuto, por favor tenha paciencia.
           </p>
-          <label ngbButtonLabel class="col-8 offset-2 mt-5"
-            ><input ngbButton type="file" class="btn-check" />Fazer
-            Upload</label
-          >
+            <div  class="col-8 offset-2 mt-5">
+              <button
+                [disabled]="disabled"
+                [ngClass]="{ disabled: disabled }"
+                class="btn btn-secondary btn-sm"
+                (click)="inputFile.click()"
+              >
+                Atualizar Tabela
+              </button>
+              <input
+                name="file"
+                id="file"
+                (change)="upload($event)"
+                type="file"
+                #inputFile
+                hidden
+              />
+            </div>
         </div>
       </div>
     </div>
@@ -62,28 +76,17 @@
             Download tabela, pode levar até 2 minutos para preparar o download
             da tabela 100% atualiza bomba patch
           </p>
-          <label ngbButtonLabel class="col-8 offset-2 mt-5"
-            ><input ngbButton type="file" class="btn-check" />Fazer
-            Download</label
-          >
+          <div  class="col-8 offset-1 mt-3">
+            <a [attr.href]="'https://localhost:7126/api/PainelAdmin/criar-excel-jogos-cbf'+tipo+serie" class="btn btn-secondary btn-sm"  rel="noopener noreferrer">Download Tabela atualizada</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
- -->
-
- <!-- <input type="file" class="file-upload" onchange="console.log(event.target.files)"> -->
 
 
- <div>
-  <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit()">
-    <div>
-      <input type="file" name="profile" (change)="onFileSelect($event)" />
-    </div>
-    <div>
-      <button type="submit">Upload</button>
-    </div>
-  </form>
-</div>
+
+
+

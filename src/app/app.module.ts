@@ -22,6 +22,7 @@ import { TabelasComponent } from './pages/tabelas/tabelas.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { AdminPainelComponent } from './pages/adminPainel/adminPainel.component';
 import { AbaTabelasComponent } from './pages/adminPainel/aba-tabelas/aba-tabelas.component';
+import { UploadDownloadService } from './Services/upload.service';
 
 
 registerLocaleData(pt);
@@ -55,6 +56,7 @@ registerLocaleData(pt);
     authInterceptorProviders,
     EstatisticaService,
     MessageService,
+    UploadDownloadService
   ],
 
   bootstrap: [AppComponent],

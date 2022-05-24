@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { AuthAPI } from '../apis/auth.api';
 
 const AUTH_API = 'https://localhost:7126/';
 
