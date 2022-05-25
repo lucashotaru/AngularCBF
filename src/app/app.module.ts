@@ -35,8 +35,6 @@ registerLocaleData(pt);
     EstatisticaComponent,
     LoginComponent,
     TabelasComponent,
-    AdminPainelComponent,
-    AbaTabelasComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +46,6 @@ registerLocaleData(pt);
     NgbModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
-
   ],
   providers: [
     MessageService,

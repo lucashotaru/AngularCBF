@@ -12,7 +12,7 @@ var httpOptions = {headers: new HttpHeaders({"Content-Type": "application.json"}
 })
 export class EstatisticaService {
 
-  readonly url = "https://localhost:5001/estatistica";
+  readonly url = "https://localhost:7126/estatistica";
 
   constructor(private http:HttpClient) { }
 
