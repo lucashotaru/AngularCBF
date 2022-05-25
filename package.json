@@ -33,7 +33,8 @@
     "rxjs": "~6.6.0",
     "rxjs-operators": "^1.1.3",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "chart.js": "^3.7.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.16",
