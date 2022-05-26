@@ -9,7 +9,9 @@ import { RouterModule } from "@angular/router";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { TooltipModule } from "ngx-bootstrap/tooltip";
 import { AppRoutingModule } from "src/app/app-routing.module";
+import { AbaDashboardComponent } from "./aba-dashboard/aba-dashboard.component";
 import { AbaTabelasComponent } from "./aba-tabelas/aba-tabelas.component";
+import { AbaUsuariosComponent } from "./aba-usuarios/aba-usuarios.component";
 import { AdminPainelRoutingModule } from "./adminPainel-routing.module";
 import { AdminPainelComponent } from "./adminPainel.component";
 
@@ -28,6 +30,10 @@ import { AdminPainelComponent } from "./adminPainel.component";
     ReactiveFormsModule,
     MatSlideToggleModule,
   ],
-  declarations: [AdminPainelComponent, AbaTabelasComponent]
+  declarations: [
+    AbaTabelasComponent,
+    AbaDashboardComponent,
+    AbaUsuariosComponent
+  ]
 })
 export class AdminPainelModule { }

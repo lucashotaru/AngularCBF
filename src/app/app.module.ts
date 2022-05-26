@@ -35,6 +35,7 @@ registerLocaleData(pt);
     EstatisticaComponent,
     LoginComponent,
     TabelasComponent,
+    AdminPainelComponent
   ],
   imports: [
     BrowserModule,
