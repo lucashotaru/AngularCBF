@@ -21,7 +21,7 @@
       </div>
 
       <div class="container-fluid mb-3">
-        <div class="row row-cols-10 justify-content-around mb-2">
+        <div class="row row-cols-xs-4 row-cols-md-10 justify-content-around mb-2">
           <div class="col" *ngFor="let time of timesTemporada">
             <div *ngIf="time.temporadaId == hidTemporada">
               <button class="btn btn-customizado btn-time my-1" (click)="selectTime(time)">
