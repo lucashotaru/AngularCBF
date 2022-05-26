@@ -42,11 +42,11 @@ const routes: Routes = [
       {
         path: 'admin',
         component: AdminPainelComponent,
-        children: [
-          {
-            path: "",
-            loadChildren: () => import ("./pages/adminPainel/adminPainel.module").then(m => m.AdminPainelModule)
-          }
+        children:[
+          {path: '', component: AbaDashboardComponent},
+          {path: 'dashboard', component: AbaDashboardComponent},
+          {path: 'usuarios', component: AbaUsuariosComponent},
+          {path: "upload-download", component: AbaTabelasComponent}
         ]
       }
     ],

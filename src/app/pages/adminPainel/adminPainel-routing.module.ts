@@ -6,6 +6,7 @@ import { AbaUsuariosComponent } from './aba-usuarios/aba-usuarios.component';
 import { AdminPainelComponent } from './adminPainel.component';
 
 const adminRotas: Routes = [
+  { path: "", component: AbaDashboardComponent },
   { path: "dashboard", component: AbaDashboardComponent },
   { path: "tabelas", component: AbaTabelasComponent },
   { path: "usuarios", component: AbaUsuariosComponent },

@@ -23,6 +23,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { AdminPainelComponent } from './pages/adminPainel/adminPainel.component';
 import { AbaTabelasComponent } from './pages/adminPainel/aba-tabelas/aba-tabelas.component';
 import { UploadDownloadService } from './Services/upload.service';
+import { AbaDashboardComponent } from './pages/adminPainel/aba-dashboard/aba-dashboard.component';
+import { AbaUsuariosComponent } from './pages/adminPainel/aba-usuarios/aba-usuarios.component';
 
 
 registerLocaleData(pt);
@@ -35,7 +37,10 @@ registerLocaleData(pt);
     EstatisticaComponent,
     LoginComponent,
     TabelasComponent,
-    AdminPainelComponent
+    AdminPainelComponent,
+    AbaTabelasComponent,
+    AbaDashboardComponent,
+    AbaUsuariosComponent
   ],
   imports: [
     BrowserModule,

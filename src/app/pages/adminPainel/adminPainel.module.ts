@@ -31,9 +31,6 @@ import { AdminPainelComponent } from "./adminPainel.component";
     MatSlideToggleModule,
   ],
   declarations: [
-    AbaTabelasComponent,
-    AbaDashboardComponent,
-    AbaUsuariosComponent
   ]
 })
 export class AdminPainelModule { }
