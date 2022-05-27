@@ -25,6 +25,19 @@ import { AbaTabelasComponent } from './pages/adminPainel/aba-tabelas/aba-tabelas
 import { UploadDownloadService } from './Services/upload.service';
 import { AbaDashboardComponent } from './pages/adminPainel/aba-dashboard/aba-dashboard.component';
 import { AbaUsuariosComponent } from './pages/adminPainel/aba-usuarios/aba-usuarios.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { MatExpansionModule } from '@angular/material/expansion';
+
+
+
 
 
 registerLocaleData(pt);
@@ -52,6 +65,16 @@ registerLocaleData(pt);
     NgbModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatExpansionModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatCardModule
   ],
   providers: [
     MessageService,

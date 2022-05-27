@@ -1,58 +1,67 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-xl-6 col-md-12">
-      <div class="card">
-        <div class="card-content">
-          <div class="card-body">
-            <div class="media d-flex">
-              <div class="media-body text-left">
-                <h3 class="success">156</h3>
-                <span>New Clients</span>
+  <div>
+    <div class="row">
+      <div class="col-xl-6 col-md-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="media-body text-left">
+                  <h3 class="success"></h3>
+                  <span></span>
+                </div>
+                <div class="align-self-center">
+                  <i class="icon-user success font-large-2 float-right"></i>
+                </div>
               </div>
-              <div class="align-self-center">
-                <i class="icon-user success font-large-2 float-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 col-md-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="media-body text-left">
+                  <h3 class="warning">Ultima atualização da tabela</h3>
+                  <span>{{dataUltimaAtualizacao}}</span>
+                </div>
+                <div class="align-self-center">
+                  <i class="bi bi-table warning font-large-2 float-right"></i>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-xl-3 col-sm-6 col-12">
-      <div class="card">
-        <div class="card-content">
-          <div class="card-body">
-            <div class="media d-flex">
-              <div class="media-body text-left">
-                <h3 class="danger">278</h3>
-                <span>New Projects</span>
-              </div>
-              <div class="align-self-center">
-                <i class="icon-rocket danger font-large-2 float-right"></i>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col-9">
+        <canvas #meuCanvas></canvas>
+      </div>
+      <div class="col-3">
+        <table
+          class="table table-borderless text-center mt-5 shadow text-white"
+        >
+          <thead>
+            <th colspan="5">Ultimos usuario Registrados</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                  class="rounded-circle"
+                  style="width: 40px"
+                  alt="Avatar"
+                />
+              </td>
+              <td>Nome</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    <div class="col-xl-3 col-sm-6 col-12">
-      <div class="card">
-        <div class="card-content">
-          <div class="card-body">
-            <div class="media d-flex">
-              <div class="media-body text-left">
-                <h3 class="success">156</h3>
-                <span>New Clients</span>
-              </div>
-              <div class="align-self-center">
-                <i class="icon-user success font-large-2 float-right"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-
   </div>
 </div>

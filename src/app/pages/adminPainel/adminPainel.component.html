@@ -1,1 +1,54 @@
-<router-outlet></router-outlet>
+<button
+  mat-icon-button
+  *ngIf="sidenav.mode === 'over'"
+  (click)="sidenav.toggle()"
+>
+  <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+  <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+</button>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8 d-flex">
+    <img
+      class="avatar mat-elevation-z8"
+      src="https://source.unsplash.com/c_GmwfHBDzk/200x200"
+    />
+
+    <h4 class="name">John Smith</h4>
+    <p class="designation">Software Engineer</p>
+
+    <mat-divider></mat-divider>
+
+    <div class="d-flex justify-content-start flex-column">
+      <button class="btn" routerLink="/home">
+        <span routerLink="dashboard"
+          ><i class="bi bi-speedometer"></i> Dashboard</span
+        >
+      </button>
+      <button class="btn" routerLink="/home">
+        <span routerLink="upload-download"
+          ><i class="bi bi-table"></i> Tabelas</span
+        >
+      </button>
+      <button class="btn" routerLink="/home">
+        <span routerLink="usuarios"
+          ><i class="bi bi-people-fill"></i> Usuários</span
+        >
+      </button>
+
+      <mat-divider></mat-divider>
+
+      <button class="btn" routerLink="/help">
+        <span
+          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+          ><i class="bi bi-question-circle"></i> Ajuda</span
+        >
+      </button>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

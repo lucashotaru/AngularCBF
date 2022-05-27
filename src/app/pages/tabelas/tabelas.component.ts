@@ -82,9 +82,7 @@ export class TabelasComponent implements OnInit {
   }
 
   async tabelaRecentes(): Promise<any>{
-    var a  = this.date.tabelaJogosRecentes().toPromise();
-    console.log(a);
-    //this.tabelaJogosRecentes = await this.http.get<TabelaJogosRecentesModel[]>(`https://localhost:7126/api/Tabelas/tabela-jogos-recentes`).toPromise<TabelaJogosRecentesModel[]>();
+    this.tabelaJogosRecentes = await this.http.get<TabelaJogosRecentesModel[]>(`https://localhost:7126/api/Tabelas/tabela-jogos-recentes`).toPromise<TabelaJogosRecentesModel[]>();
   }
 
   mudaPagina() {
