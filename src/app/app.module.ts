@@ -35,7 +35,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
+<<<<<<< HEAD
 import { RegistroComponent } from './auth/Registro/Registro.component';
+=======
+>>>>>>> 9d2df95bef6bab56ef6c574d495b921587709e6f
 
 
 
