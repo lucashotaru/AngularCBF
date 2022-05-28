@@ -12,6 +12,33 @@ h2{
   color: var(--white)
 }
 
+@for $i from 1 through 4 {
+  .posicaoColuna-#{$i} {
+    border-left: solid #4285F4;
+  }
+}
+@for $i from 5 through 7 {
+  .posicaoColuna-#{$i} {
+    border-left: solid #FA7B17;
+  }
+}
+@for $i from 7 through 12 {
+  .posicaoColuna-#{$i} {
+    border-left: solid #34A853;
+  }
+}
+@for $i from 17 through 20 {
+  .posicaoColuna-#{$i} {
+    border-left: solid #EA4335;
+  }
+}
+
+.tabelinhaClassificacao {
+  height: 12px;
+  width: 12px;
+}
+
+
 .escudos{
   width: 20px;
   height: 18px;
@@ -264,39 +291,7 @@ option {
   border: 1px solid var(--dark-light);
 }
 
-.posicao_tabela {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.09), 0 6px 15px 0 rgba(0, 0, 0, 0.09);
-  margin-top: 11px;
-  padding: 12px 17px;
-  color: white;
-  border-radius: 7px;
-  width:1000px !important
-}
 
-.posicao_tabela span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.posicao_tabela span:after {
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.posicao_tabela:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-span:after {
-  font-family: FontAwesome;
-  content: "\f107";
-}
 
 .tabelaJogosRecentes{
   border-radius: 15px;

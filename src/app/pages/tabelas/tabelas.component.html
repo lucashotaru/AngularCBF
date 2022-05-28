@@ -1,124 +1,233 @@
 <div class="container-fluid">
- <div class="row mt-md-5">
-  <div class="col-1 d-none d-lg-block mt-2">
-   <div class="botao_data" role="group" ngbRadioGroup name="radioBasic" [(ngModel)]="ano" (ngModelChange)="buscarTabela()">
-    <label *ngFor="let item of botaoDataLista" ngbButtonLabel [ngClass]="'btn btn-lg shadow mt-2 '+ corTexto"><input ngbButton type="radio" class="btn-check" [value]="item.valor">{{item.nome}}</label>
-   </div>
-  </div>
-  <div class="col-sm-12 col-md-7 mt-3">
-   <div class="col-sm-12 col-md-6">
-    <div class="input-group ml-md-2">
-     <select [ngClass]="'form-select form-select-md mb-3 bg-secondary '+ corTexto" [(ngModel)]="tipo" (ngModelChange)="filtroTipo()">
-      <option [ngValue]="'campeonato-brasileiro'">Campeonato Brasileiro</option>
-      <option [ngValue]="'copa-brasil'">Copa do Brasil</option>
-      <option [ngValue]="'supercopa'">Supercopa</option>
-     </select>
-    </div>
-   </div>
-   <div class="col-sm-12 col-md-6 mt-2 d-flex justify-content-between ml-md-2">
-    <select [ngClass]="'col-sm-5 form-select form-select-sm bg-secondary '+ corTexto" [(ngModel)]="serieSelecionada" (ngModelChange)="buscarTabela()">
-     <option *ngFor="let item of seriesLista" [value]="item.valor">{{ item.nome }}</option>
-    </select>
-    <select [ngClass]="'col-sm-5 form-select form-select-sm bg-secondary d-sm-block d-md-none '+ corTexto" [(ngModel)]="ano" (ngModelChange)="buscarTabela()">
-     <option *ngFor="let item of botaoDataLista" [value]="item.valor">{{ item.nome }}</option>
-    </select>
-   </div>
-   <div>
-    <table [ngClass]="'table table-borderless mb-3 text-center '+ corTexto">
-     <thead>
-     <tr>
-      <th>Posição</th>
-      <th class="text-start">Time</th>
-      <th>Pontos</th>
-      <th>Vitórias</th>
-      <th>Derrotas</th>
-      <th>Empates</th>
-     </tr>
-     </thead>
-     <tbody class="table-body">
-      <tr *ngFor="let item of TabelaPrincipal">
-       <th scope="row">
-        <a class="posicao_tabela" id="ouro" *ngIf="item.posicao == 1"><span>{{item.posicao}}</span></a>
-        <a class="posicao_tabela" id="prata" *ngIf="item.posicao == 2"><span>{{item.posicao}}</span></a>
-        <a class="posicao_tabela" id="bronze" *ngIf="item.posicao == 3"><span>{{item.posicao}}</span></a>
-        <a class="posicao_tabela" id="outrasposicoes" *ngIf="item.posicao > 3"><span>{{item.posicao}}</span></a>
-       </th>
-       <td class="text-start d-flex position-sticky" scope="row">
-        <a *ngFor="let item2 of brasaoTime">
-         <img *ngIf="item.nome == item2.nome" [src]="item2.link" class="me-3 escudos">
-        </a>
-        <a class="d-none d-md-block">{{item.nome}}</a>
-        <a class="d-none d-sm-block d-md-none d-lg-none">{{item.siglaTime}}</a>
-       </td>
-       <td scope="row">{{ item.pontos}}</td>
-       <td class="text-vitoria" scope="row">{{ item.vitorias }}</td>
-       <td class="text-derrota" scope="row">{{ item.derrotas }}</td>
-       <td scope="row">{{ item.empates }}</td>
-      </tr>
-     </tbody>
-    </table>
-    <div class="d-flex justify-content-end mr-2">
-     <div class="pagination modal-3" role="group" ngbRadioGroup name="radioBasic" [(ngModel)]="page" (ngModelChange)="mudaPagina()">
-      <div class="row">
-       <label ngbButtonLabel><input ngbButton type="radio" class="btn-check" [value]="1">&laquo;</label>
-       <label ngbButtonLabel><input ngbButton type="radio" class="btn-check" [value]="2">&raquo;</label>
+  <div class="row mt-md-5">
+    <div class="col-1 d-none d-lg-block mt-2">
+      <div
+        class="botao_data"
+        role="group"
+        ngbRadioGroup
+        name="radioBasic"
+        [(ngModel)]="ano"
+        (ngModelChange)="buscarTabela()"
+      >
+        <label
+          *ngFor="let item of botaoDataLista"
+          ngbButtonLabel
+          [ngClass]="'btn btn-lg shadow mt-2 ' + corTexto"
+          ><input
+            ngbButton
+            type="radio"
+            class="btn-check"
+            [value]="item.valor"
+          />{{ item.nome }}</label
+        >
       </div>
-     </div>
     </div>
-   </div>
-  </div>
-  <div class="card-jogador col-md-4 col-sm-12">
-   <div class="card_jogador_container offset-2">
-    <ngb-carousel class="carousel" [showNavigationIndicators]="showNavigationIndicators" ngmode>
-      <ng-template ngbSlide *ngFor="let item of cardJogadorLista" >
-        <div class="card">
-          <h2>{{item.nomeJogador}}</h2>
-          <div class="imgBx">
-            <input type="image" src="{{item.ImagemJogador}}">
+    <div class="col-sm-12 col-md-7 mt-3">
+      <div class="col-sm-12 col-md-6">
+        <div class="input-group">
+          <select
+            [ngClass]="
+              'form-select form-select-md mb-3 bg-secondary ' + corTexto
+            "
+            [(ngModel)]="tipo"
+            (ngModelChange)="filtroTipo()"
+          >
+            <option [ngValue]="'campeonato-brasileiro'">
+              Campeonato Brasileiro
+            </option>
+            <option [ngValue]="'copa-brasil'">Copa do Brasil</option>
+            <option [ngValue]="'supercopa'">Supercopa</option>
+          </select>
+        </div>
+      </div>
+      <div
+        class="col-sm-12 col-md-6 mt-2 d-flex justify-content-between"
+      >
+        <select
+          [ngClass]="
+            'col-sm-5 form-select form-select-sm bg-secondary ' + corTexto
+          "
+          [(ngModel)]="serieSelecionada"
+          (ngModelChange)="buscarTabela()"
+        >
+          <option *ngFor="let item of seriesLista" [value]="item.valor">
+            {{ item.nome }}
+          </option>
+        </select>
+        <select
+          [ngClass]="
+            'col-sm-5 form-select form-select-sm bg-secondary d-sm-block d-md-none ' +
+            corTexto
+          "
+          [(ngModel)]="ano"
+          (ngModelChange)="buscarTabela()"
+        >
+          <option *ngFor="let item of botaoDataLista" [value]="item.valor">
+            {{ item.nome }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <table
+          [ngClass]="'table table-borderless mb-3 text-center ' + corTexto"
+        >
+          <thead>
+            <tr>
+              <th>Posição</th>
+              <th class="text-start">Time</th>
+              <th>Pontos</th>
+              <th>Vitórias</th>
+              <th>Derrotas</th>
+              <th>Empates</th>
+            </tr>
+          </thead>
+          <tbody class="table-body">
+            <tr *ngFor="let item of TabelaPrincipal">
+              <td scope="row" [ngClass]="'posicaoColuna-' + item.posicao">
+                <span>{{ item.posicao }}</span>
+              </td>
+              <td class="text-start d-flex position-sticky" scope="row">
+                <a *ngFor="let item2 of brasaoTime">
+                  <img
+                    *ngIf="item.nome == item2.nome"
+                    [src]="item2.link"
+                    class="me-3 escudos"
+                  />
+                </a>
+                <a class="d-none d-md-block">{{ item.nome }}</a>
+                <a class="d-none d-sm-block d-md-none d-lg-none">{{
+                  item.siglaTime
+                }}</a>
+              </td>
+              <td scope="row">{{ item.pontos }}</td>
+              <td class="text-vitoria" scope="row">{{ item.vitorias }}</td>
+              <td class="text-derrota" scope="row">{{ item.derrotas }}</td>
+              <td scope="row">{{ item.empates }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-white">
+          <div class="d-flex justify-content-end mr-2">
+            <div
+              class="pagination modal-3"
+              role="group"
+              ngbRadioGroup
+              name="radioBasic"
+              [(ngModel)]="page"
+              (ngModelChange)="mudaPagina()"
+            >
+              <div class="row">
+                <label ngbButtonLabel
+                  ><input
+                    ngbButton
+                    type="radio"
+                    class="btn-check"
+                    [value]="1"
+                  />&laquo;</label
+                >
+                <label ngbButtonLabel
+                  ><input
+                    ngbButton
+                    type="radio"
+                    class="btn-check"
+                    [value]="2"
+                  />&raquo;</label
+                >
+              </div>
+            </div>
           </div>
-          <div class="contentBx">
-            <div class="size">
-              <h3 class="m-3">{{item.nomeJogador}}</h3>
+          <div>
+            <div class="d-flex">
+              <div
+                class="tabelinhaClassificacao mt-1 mr-1"
+                style="background-color: #4285f4"
+              ></div>
+              Fase de grupos da Copa Libertadores
             </div>
-            <div class="color">
-              <h4>Ney</h4>
+            <div class="d-flex">
+              <div
+                class="tabelinhaClassificacao mt-1 mr-1"
+                style="background-color: #fa7b17"
+              ></div>
+              Qualificatórias da Copa Libertadores
             </div>
-            <a class="btn btn-md shadow mt-5">Seguir</a>
+            <div class="d-flex">
+              <div
+                class="tabelinhaClassificacao mt-1 mr-1"
+                style="background-color: #34a853"
+              ></div>
+              Fase de grupos da Copa Sul-Americana
+            </div>
+            <div class="d-flex">
+              <div
+                class="tabelinhaClassificacao mt-1 mr-1"
+                style="background-color: #ea4335"
+              ></div>
+              Rebaixamento
+            </div>
           </div>
         </div>
-      </ng-template>
-    </ngb-carousel>
-
-   </div>
-   <div>
-   </div>
-   <table [ngClass]="'table table-borderless text-center mt-5 shadow col-md-10 offset-1 tabelaJogosRecentes '+ corTexto">
-    <thead>
-     <th colspan="5">Jogos Recentes</th>
-    </thead>
-    <tbody>
-     <tr *ngFor="let item of tabelaJogosRecentes" class="recentesTexto">
-      <td>Série A</td>
-      <td >
-       <div *ngFor="let item2 of brasaoTime" >
-        <a *ngIf="item.siglaTimeCasa == item2.sigla">
-         {{item.siglaTimeCasa}}
-         <img [src]="item2.link" class="escudos">
-        </a>
-       </div>
-      </td>
-      <td>{{item.placarTimeCasa}} x {{item.placarTimeVisitante}}</td>
-      <td >
-       <div *ngFor="let item2 of brasaoTime">
-        <a *ngIf="item.siglaTimeVisitante == item2.sigla">
-         <img [src]="item2.link" class="escudos">
-         {{item.siglaTimeVisitante}}
-        </a>
-       </div>
-      </td>
-     </tr>
-    </tbody>
-   </table>
+      </div>
+    </div>
+    <div class="card-jogador col-md-4 col-sm-12">
+      <div class="card_jogador_container offset-2">
+        <ngb-carousel
+          class="carousel"
+          [showNavigationIndicators]="showNavigationIndicators"
+          ngmode
+        >
+          <ng-template ngbSlide *ngFor="let item of cardJogadorLista">
+            <div class="card">
+              <h2>{{ item.nomeJogador }}</h2>
+              <div class="imgBx">
+                <input type="image" src="{{ item.ImagemJogador }}" />
+              </div>
+              <div class="contentBx">
+                <div class="size">
+                  <h3 class="m-3">{{ item.nomeJogador }}</h3>
+                </div>
+                <div class="color">
+                  <h4>Ney</h4>
+                </div>
+                <a class="btn btn-md shadow mt-5">Seguir</a>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </div>
+      <div></div>
+      <table
+        [ngClass]="
+          'table table-borderless text-center mt-5 shadow col-md-10 offset-1 tabelaJogosRecentes ' +
+          corTexto
+        "
+      >
+        <thead>
+          <th colspan="5">Jogos Recentes</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of tabelaJogosRecentes" class="recentesTexto">
+            <td>Série A</td>
+            <td>
+              <div *ngFor="let item2 of brasaoTime">
+                <a *ngIf="item.siglaTimeCasa == item2.sigla">
+                  {{ item.siglaTimeCasa }}
+                  <img [src]="item2.link" class="escudos" />
+                </a>
+              </div>
+            </td>
+            <td>{{ item.placarTimeCasa }} x {{ item.placarTimeVisitante }}</td>
+            <td>
+              <div *ngFor="let item2 of brasaoTime">
+                <a *ngIf="item.siglaTimeVisitante == item2.sigla">
+                  <img [src]="item2.link" class="escudos" />
+                  {{ item.siglaTimeVisitante }}
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
- </div>
 </div>

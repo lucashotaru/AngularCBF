@@ -47,6 +47,11 @@ export const BrasaoTimeLista: BrasaoTimeModel[] = [
     "sigla": "",
   },
   {
+    "link": "https://vetores.org/d/america-mineiro.svg",
+    "nome": "America - MG",
+    "sigla": "",
+  },
+  {
     "link": "https://vetores.org/d/ceara.svg",
     "nome": "Ceará - CE",
     "sigla": "CEA",
