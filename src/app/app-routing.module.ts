@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from './auth/Login/Login.component';
+import { RegistroComponent } from './auth/Registro/Registro.component';
 import { AbaDashboardComponent } from './pages/adminPainel/aba-dashboard/aba-dashboard.component';
 import { AbaTabelasComponent } from './pages/adminPainel/aba-tabelas/aba-tabelas.component';
 import { AbaUsuariosComponent } from './pages/adminPainel/aba-usuarios/aba-usuarios.component';
@@ -35,11 +37,6 @@ const routes: Routes = [
         component: TabelasComponent,
       },
       {
-        path: 'registro',
-        pathMatch: 'full',
-        component: AdminPainelComponent,
-      },
-      {
         path: 'admin',
         component: AdminPainelComponent,
         children:[
@@ -48,8 +45,13 @@ const routes: Routes = [
           {path: 'usuarios', component: AbaUsuariosComponent},
           {path: "upload-download", component: AbaTabelasComponent}
         ]
-      }
+      },
     ],
+  },
+  {
+    path: 'registro',
+    pathMatch: 'full',
+    component: RegistroComponent,
   },
 ];
 

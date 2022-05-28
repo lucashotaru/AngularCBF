@@ -9,7 +9,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 @Component({
   selector: 'app-adminPainel',
   templateUrl: './adminPainel.component.html',
-  styleUrls: ['./adminPainel.component.scss']
+  styleUrls: ['./adminPainel.component.scss'],
 })
 export class AdminPainelComponent {
   @ViewChild(MatSidenav)

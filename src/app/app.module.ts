@@ -35,6 +35,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { RegistroComponent } from './auth/Registro/Registro.component';
 
 
 
@@ -53,7 +54,8 @@ registerLocaleData(pt);
     AdminPainelComponent,
     AbaTabelasComponent,
     AbaDashboardComponent,
-    AbaUsuariosComponent
+    AbaUsuariosComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
