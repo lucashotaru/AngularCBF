@@ -9,6 +9,7 @@ import { TokenStorageService } from 'src/app/Services/token-storage.service';
   styleUrls: ['./Header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  collapsed = true;
   isCollapsed = true;
   isDarkTheme!: Observable<boolean>;
 
