@@ -86,7 +86,6 @@
   </div>
 </div>
 
-<<<<<<< HEAD
 <ng-template #content let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Download Tabela</h4>
@@ -139,32 +138,3 @@
     >
   </div>
 </ng-template>
-=======
-
-<ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Download Tabela</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
-  </div>
-  <div class="modal-body">
-    <div>
-      <select [ngClass]="'form-select form-select-md mb-3 bg-secondary '+ corTexto" [(ngModel)]="tipo" (ngModelChange)="filtroTipo()">
-       <option [ngValue]="'campeonato-brasileiro'">Campeonato Brasileiro</option>
-       <option [ngValue]="'copa-brasil'">Copa do Brasil</option>
-       <option [ngValue]="'supercopa'">Supercopa</option>
-      </select>
-     </div>
-     <div>
-      <select [ngClass]="'form-select form-select-md mb-3 bg-secondary '+ corTexto" [(ngModel)]="serie" (ngModelChange)="filtroSerie()">
-       <option *ngFor="let item of seriesLista" [value]="item.valor">{{ item.nome }}</option>
-      </select>
-     </div>
-    </div>
-  <div class="modal-footer">
-    <a type="button" class="btn btn-outline-dark" (click)="c('Save click')" [attr.href]="'https://localhost:7126/api/PainelAdmin/criar-excel-jogos-cbf'+tipoSelecionado+serieSelecionada" serieSelecionada="_blank" rel="noopener noreferrer">Download</a>
-  </div>
-</ng-template>
-
-
-
->>>>>>> 9d2df95bef6bab56ef6c574d495b921587709e6f

@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-<<<<<<< HEAD
 import { LoginComponent } from './auth/Login/Login.component';
 import { RegistroComponent } from './auth/Registro/Registro.component';
-=======
->>>>>>> 9d2df95bef6bab56ef6c574d495b921587709e6f
 import { AbaDashboardComponent } from './pages/adminPainel/aba-dashboard/aba-dashboard.component';
 import { AbaTabelasComponent } from './pages/adminPainel/aba-tabelas/aba-tabelas.component';
 import { AbaUsuariosComponent } from './pages/adminPainel/aba-usuarios/aba-usuarios.component';
