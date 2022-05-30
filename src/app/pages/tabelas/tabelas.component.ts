@@ -76,9 +76,10 @@ export class TabelasComponent implements OnInit {
   async buscarTabela()
   {
     this.page = 1;
-    this.TabelaPrincipalData  = await this.http.get<TabelasModel[]>(`https://localhost:7126/api/Tabelas/tabela-principal/${this.ano}/${this.serieSelecionada}`).toPromise<TabelasModel[]>()
-    this.mudaPagina()
-    this.colecao = this.TabelaPrincipalData.length
+    this.TabelaPrincipalData  = await this.http.get<TabelasModel[]>(`https://localhost:7126/api/Tabelas/tabela-principal/${this.ano}/${this.serieSelecionada}`).toPromise<TabelasModel[]>();
+    this.mudaPagina();
+    this.colecao = this.TabelaPrincipalData.length;
+    console.log(this.TabelaPrincipalData);
   }
 
   async tabelaRecentes(): Promise<any>{

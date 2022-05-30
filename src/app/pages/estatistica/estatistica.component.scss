@@ -9,11 +9,15 @@
 .btn-customizado{
 
   color: #fff;
-  background-color: #00000040;
+  background: var(--dark-light);
 
   img{
     max-width: 54px;
   }
+}
+
+.btn{
+  background: var(--dark-light);
 }
 
 .time-brasao{
@@ -21,12 +25,12 @@
 }
 
 .bg-comparador{
-  background-color: #00000080;
+  background: var(--dark-light);
   border-radius: 10px;
 }
 
 .bg-time{
-  background-color: #00000040;
+  background: var(--dark-blue);
   border-radius: 10px;
 }
 
