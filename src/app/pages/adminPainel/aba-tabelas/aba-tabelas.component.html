@@ -86,20 +86,20 @@
   </div>
 </div>
 
-<ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
+<ng-template #content let-c="close" let-d="dismiss" class="bg-dark">
+  <div class="modal-header bg-dark text-white">
     <h4 class="modal-title" id="modal-basic-title">Download Tabela</h4>
     <button
       type="button"
-      class="btn-close"
+      class="btn-close btn-close-white"
       aria-label="Close"
       (click)="d('Cross click')"
     ></button>
   </div>
-  <div class="modal-body">
-    <div>
+  <div class="modal-body bg-dark">
+    <div class="bg-dark">
       <select
-        [ngClass]="'form-select form-select-md mb-3  ' + corTexto"
+        [ngClass]="'form-select form-select-md mb-3 bg-dark' + corTexto"
         [(ngModel)]="tipo"
         (ngModelChange)="filtroTipo()"
       >
@@ -112,7 +112,7 @@
     </div>
     <div>
       <select
-        [ngClass]="'form-select form-select-md mb-3  ' + corTexto"
+        [ngClass]="'form-select form-select-md mb-3  bg-dark' + corTexto"
         [(ngModel)]="serie"
         (ngModelChange)="filtroSerie()"
       >
@@ -122,10 +122,10 @@
       </select>
     </div>
   </div>
-  <div class="modal-footer">
+  <div class="modal-footer bg-dark">
     <a
       type="button"
-      class="btn btn-outline-dark"
+      class="btn btn-light"
       (click)="c('Save click')"
       [attr.href]="
         'https://localhost:7126/api/PainelAdmin/criar-excel-jogos-cbf' +

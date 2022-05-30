@@ -2,11 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart, ChartDataset } from 'chart.js';
 import { DataLista } from 'dados/DataLista';
-import { UsuarioListagemLista } from 'dados/UsuarioListagemLista';
+import { USUARIOSLISTA } from 'dados/UsuarioListagemLista';
 import { data } from 'jquery';
 import { dataChartJS } from 'src/app/models/dataChartJS';
 import { DataModel } from 'src/app/models/DataModel';
 import { UsuarioListagemModel } from 'src/app/models/UsuarioListagem.model';
+import { Usuarios } from 'src/app/models/UsuariosModel';
 
 @Component({
   selector: 'app-aba-dashboard',
@@ -19,7 +20,7 @@ export class AbaDashboardComponent implements OnInit {
   dataLista: DataModel[] = DataLista;
   dataChart: any;
   contadorUsuarios: any;
-  usuarios: UsuarioListagemModel[] = UsuarioListagemLista;
+  usuarios: Usuarios[] = USUARIOSLISTA;
 
   @ViewChild('meuCanvas', { static: true }) elemento: ElementRef;
 
@@ -52,6 +53,26 @@ export class AbaDashboardComponent implements OnInit {
             display: true,
             text: 'Quantidade de jogos por mês',
           },
+          legend: {
+            labels: {
+              color: 'white',
+            },
+          },
+        },
+        scales: {
+          y:{
+            ticks: {
+              color: "white",
+            }
+          },
+          x:{
+            ticks: {
+              color: "white",
+              font: {
+                size: 14,
+              },
+            }
+          }
         },
       },
     });

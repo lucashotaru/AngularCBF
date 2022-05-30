@@ -8,7 +8,7 @@
               <div class="media d-flex">
                 <div class="media-body text-left">
                   <h3 class="info">Quantidade de jogos registrados</h3>
-                  <span>{{quantidadeDeJogosRegistrados}}</span>
+                  <span class="offset-md-9">{{quantidadeDeJogosRegistrados}}</span>
                 </div>
                 <div class="align-self-center">
                   <i class="bi bi-circle-square info font-large-2 float-right"></i>
@@ -25,7 +25,7 @@
               <div class="media d-flex">
                 <div class="media-body text-left">
                   <h3 class="warning">Ultima atualização da tabela</h3>
-                  <span>{{ dataUltimaAtualizacao }}</span>
+                  <span class="offset-md-2">{{ dataUltimaAtualizacao }}</span>
                 </div>
                 <div class="align-self-center">
                   <i class="bi bi-table warning font-large-2 float-right"></i>
@@ -69,16 +69,16 @@
             <tr *ngFor="let usuario of usuarios">
               <td>
                 <img
-                  src="{{ usuario.foto }}"
+                  src="{{ usuario.flag }}"
                   class="rounded-circle"
                   style="width: 25px"
                   alt="Avatar"
                 />
               </td>
               <td>
-                {{ usuario.nome }}
+                {{ usuario.Nome }}
               </td>
-              <td>{{usuario.dataRegistro}}</td>
+              <td>{{usuario.DataRegistro}}</td>
             </tr>
           </tbody>
         </table>

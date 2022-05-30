@@ -6,11 +6,11 @@ import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 import {DecimalPipe} from '@angular/common';
 import {debounceTime, delay, switchMap, tap} from 'rxjs/operators';
 import {SortColumn, SortDirection} from './sortable.directive';
-import { Country } from '../models/countryModel';
-import { COUNTRIES } from '../pages/adminPainel/aba-usuarios/aba-usuarios.component';
+import { USUARIOSLISTA } from 'dados/UsuarioListagemLista';
+import { Usuarios } from '../models/UsuariosModel';
 
 interface SearchResult {
-  countries: Country[];
+  usuarioslista: Usuarios[];
   total: number;
 }
 
@@ -24,28 +24,28 @@ interface State {
 
 const compare = (v1: string | number, v2: string | number) => v1 < v2 ? -1 : v1 > v2 ? 1 : 0;
 
-function sort(countries: Country[], column: SortColumn, direction: string): Country[] {
+function sort(usuarioslista: Usuarios[], column: any, direction: string): Usuarios[] {
   if (direction === '' || column === '') {
-    return countries;
+    return usuarioslista;
   } else {
-    return [...countries].sort((a, b) => {
+    return [...usuarioslista].sort((a, b) => {
       const res = compare(a[column], b[column]);
       return direction === 'asc' ? res : -res;
     });
   }
 }
 
-function matches(country: Country, term: string, pipe: PipeTransform) {
-  return country.name.toLowerCase().includes(term.toLowerCase())
-    || pipe.transform(country.area).includes(term)
-    || pipe.transform(country.population).includes(term);
+function matches(usuarios: Usuarios, term: string, pipe: PipeTransform) {
+  return usuarios.Nome.toLowerCase().includes(term.toLowerCase())
+    || pipe.transform(usuarios.Email).includes(term)
+    || pipe.transform(usuarios.DataRegistro).includes(term);
 }
 
 @Injectable({providedIn: 'root'})
-export class CountryService {
+export class UsuariosService {
   private _loading$ = new BehaviorSubject<boolean>(true);
   private _search$ = new Subject<void>();
-  private _countries$ = new BehaviorSubject<Country[]>([]);
+  private _usuarioslista$ = new BehaviorSubject<Usuarios[]>([]);
   private _total$ = new BehaviorSubject<number>(0);
 
   private _state: State = {
@@ -64,14 +64,14 @@ export class CountryService {
       delay(200),
       tap(() => this._loading$.next(false))
     ).subscribe(result => {
-      this._countries$.next(result.countries);
+      this._usuarioslista$.next(result.usuarioslista);
       this._total$.next(result.total);
     });
 
     this._search$.next();
   }
 
-  get countries$() { return this._countries$.asObservable(); }
+  get usuarioslista$() { return this._usuarioslista$.asObservable(); }
   get total$() { return this._total$.asObservable(); }
   get loading$() { return this._loading$.asObservable(); }
   get page() { return this._state.page; }
@@ -93,14 +93,14 @@ export class CountryService {
     const {sortColumn, sortDirection, pageSize, page, searchTerm} = this._state;
 
     // 1. sort
-    let countries = sort(COUNTRIES, sortColumn, sortDirection);
+    let usuarioslista = sort(USUARIOSLISTA, sortColumn, sortDirection);
 
     // 2. filter
-    countries = countries.filter(country => matches(country, searchTerm, this.pipe));
-    const total = countries.length;
+    usuarioslista = usuarioslista.filter(usuarios => matches(usuarios, searchTerm, this.pipe));
+    const total = usuarioslista.length;
 
     // 3. paginate
-    countries = countries.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
-    return of({countries, total});
+    usuarioslista = usuarioslista.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
+    return of({usuarioslista, total});
   }
 }

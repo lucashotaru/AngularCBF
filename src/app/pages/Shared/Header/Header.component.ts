@@ -17,9 +17,11 @@ export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   mostrarPainelAdmin = false;
   username?: string;
+  
   constructor(private tokenStorageService: TokenStorageService) { }
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
+    console.log(this.tokenStorageService.decodePayloadJWT());
     if (this.isLoggedIn) {
     }
   }
